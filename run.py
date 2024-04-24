@@ -1,5 +1,5 @@
 import gspread
-from google.oauth2.service_account import credentials
+from google.oauth2.service_account import Credentials
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -7,15 +7,15 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
-CREDS = credentials.from_service_account_file('creds.json')
+CREDS = Credentials.from_service_account_file('creds.json')
 SCOPE_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPE_CREDS)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 
-SHEET = GSPREAD_CLIENT.open('Expense-Manager')
+SHEET = GSPREAD_CLIENT.open('expense_manager')
 
 expenses = SHEET.worksheet('expenses')
 
-data =  expenses.get_all_values()
+data = expenses.get_all_values()
 
 print (data)
 
