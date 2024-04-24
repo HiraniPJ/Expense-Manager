@@ -1,4 +1,25 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
-print ('hello')
+import gspread
+from google.oauth2.service_account import credentials
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = credentials.from_service_account_file('creds.json')
+SCOPE_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPE_CREDS)
+
+SHEET = GSPREAD_CLIENT.open('Expense-Manager')
+
+expenses = SHEET.worksheet('expenses')
+
+data =  expenses.get_all_values()
+
+print (data)
+
+
+
+
+
