@@ -8,10 +8,10 @@ SCOPE = [
     ]
 
 CREDS = Credentials.from_service_account_file('creds.json')
-SCOPE_CREDS = CREDS.with_scopes(SCOPE)
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 
-SHEET = GSPREAD_CLIENT.open('expense_manager')
+SHEET = GSPREAD_CLIENT.open('Expense-Manager')
 
 expenses = SHEET.worksheet('expenses')
 
