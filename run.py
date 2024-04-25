@@ -26,6 +26,16 @@ def print_intro():
     intro_art = text2art("Expense Manager") 
     print(intro_art)
 
+def validate_input(input_value, data_type):
+    """ Validates if the input value can be converted to the specified data type. """
+    try: 
+        if data_type == 'int':
+            value = int(input_value)
+        elif data_type == 'float':   
+            value = float(input_value) 
+        return True, value
+    except ValueError:
+        return False, None    
 
 
 def main ():
