@@ -52,10 +52,17 @@ def get_month_selection():
 def set_monthly_budget():
     month = get_month_selection()
     while True:
-        budget = input(f"nter the budget for {month}:")
-        valid, budget_value = validate_input(budget, 'float')     
-        if valid: return month, budget_value    
-    
+        budget = input(f"Enter the budget for {month}:")
+        valid, budget = validate_input(budget, 'float')     
+        if valid: 
+            return month, budget  
+        
+def update_budget_in_sheet(month, budget):    
+    try:
+        month_cel = expenses.find(month)
+        expenses.update_cell(month_cell.row, 2, budget)    
+    except gspread.exceptions.CellNotFound:
+        expenses.append_row([month, budget])   
 
 def main ():
     print_intro()
