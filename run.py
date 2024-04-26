@@ -64,6 +64,22 @@ def update_budget_in_sheet(month, budget):
     except gspread.exceptions.CellNotFound:
         expenses.append_row([month, budget])   
 
+def get_category_selection()
+    categories = {
+        1: "Rent",
+        2: "Groceries",
+        3: "Vehicle",
+        4: "Cafe/Restaurant",
+        5: "Online Shopping",
+        6: "Other"
+    }
+print("Select a category:")
+for key, value in categories.items():
+    print(f"{key}. {value}")
+    
+
+
+
 def main ():
     print_intro()
     month, budget =set_monthly_budget()
