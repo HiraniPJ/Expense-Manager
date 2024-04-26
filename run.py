@@ -66,6 +66,9 @@ def update_budget_in_sheet(month, budget):
 
 def main ():
     print_intro()
+    month, budget =set_monthly_budget()
+    update_budget_in_sheet(month, budget)
+    print(f"Budget of {budget} has beene set for {month}.")
 
 
 if __name__=="__main__":
