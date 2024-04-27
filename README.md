@@ -101,8 +101,40 @@
 <li>Art: For ASCII art representations.</li>
 </ul>
 
+<h3><b>Validator Testing</b></h3>
 
-<h3></h3>
+<h2>Github Process</h2>
+
+<h3>Fork</h3>
+<ol type="1.">
+<li>On GitHub.com, navigate to the HiraniPJ/Expense-Manager repository.</li>
+<li>In the top-right corner of the page, click Fork.</li>
+<li>By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further.</li>
+<li>Add a description to your fork to indicate that this is your personal copy or a place where you're planning to propose changes.</li>
+<li>Click Create fork.</li>
+
+<h3>Clone</h3>
+<ol type="1.">
+<li>Above the list of files, click the button that says 'Code'.</li>
+<li>Copy the URL for the repository.</li>
+<li>Open Terminal. Change the directory to the location where you want the cloned directory.</li>
+<li>Type git clone, and then paste the URL you copied earlier.</li>
+<li>Press Enter.</li>
+
+<h3>Local Deployment</h3>
+<ol type="1.">
+<li>Sign up to Gitpod or any other online IDE that suits your development needs.</li>
+<li>Download the Gitpod browser extension for easy access.</li>
+<li>On GitHub.com, navigate to the HiraniPJ/Expense-Manager repository.</li>
+<li>Above the list of files, click the button that says 'Gitpod'.</li>
+<li>This will open a new Gitpod workspace with your cloned repository ready to use.</li>
+
+<h3><b>Heroku Deployment</b></h3>
+
+
+<h1><b>Credits</b></h1>
+
+
 <h2><b></b></h2>
 <h2><b></b></h2>
 <h2><b></b></h2>
