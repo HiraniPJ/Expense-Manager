@@ -59,7 +59,17 @@
 <li>Visual report of the monthly expense potrayed on a table format.</li>
 </ul>
 
+ <h2><b>Scope of Application</b><h2>
+ <p>Expense Manager aims to cater to individuals looking for a simple yet effective way to track their personal finances, especially suited for those who prefer using Google Spreadsheets for data management.</p>
 
+<h2><b></b></h2>
+<h2><b></b></h2>
+<h2><b></b></h2>
+<h2><b></b></h2>
+<h2><b></b></h2>
+<h2><b></b></h2>
+<h2><b></b></h2>
+<h2><b></b></h2>
 <li></li>
 <li></li>
 <p></p>
