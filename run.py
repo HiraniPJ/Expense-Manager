@@ -124,7 +124,7 @@ def generate_expense_report(month):
 
     try:
         budget_row = expenses.find(month).row
-        budget = float(expenses.cell(1,2).value)
+        budget = float(expenses.cell(budget_row, 2).value)
     for col in range(3,9):
         category = expenses.cell(1, col).value
         amount = expenses.cell(2, col). value
