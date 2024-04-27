@@ -19,7 +19,7 @@ SHEET = GSPREAD_CLIENT.open('Expense-Manager')
 expenses = SHEET.worksheet('expenses')
  
 
-""" Clears termnals for a clean display. """ 
+""" Clears terminal for a clean display. """ 
 def clear_terminal():
     os.system('cls' if os.name == 'nt' else 'clear')
 
@@ -117,16 +117,6 @@ def append_expense_to_sheet(month, category, amount):
         expenses.append_row([month, category, amount])
 
 
-""" Prompts the user for confirmation. Returns True if confirmed. """
-def confirm_action(prompt):
-    response = input(prompt + " (y/n): ").lower()
-    if response == 'y':
-        return True
-    elif response == 'n':
-        return False
-    else:
-        print("Invalid repsonse. Please answer 'y' or 'n'.")
-
 """ Generates an expense report for the given month. """
 def generate_expense_report(month):
     expenses_summary = {}
@@ -148,6 +138,27 @@ def generate_expense_report(month):
     print(f"Total Expenses: {total_expenses}£") 
     print(f"Remaining Budget: {remaining_budget}£")
     return expenses_summary, remaining_budget
+
+
+"""Prints data in a pretty table format."""
+def print_table(data,title):
+    table = PrettyTable()
+    table.title = title
+    table.field_names = ["Category", "Amount (£)"]
+    for key, value in data.items():
+        table.add_row([key, f"{value}£"])
+    print(table)
+
+
+""" Prompts the user for confirmation. Returns True if confirmed. """
+def confirm_action(prompt):
+    response = input(prompt + " (y/n): ").lower()
+    if response == 'y':
+        return True
+    elif response == 'n':
+        return False
+    else:
+        print("Invalid repsonse. Please answer 'y' or 'n'.")
 
 def main ():
     print_intro()
