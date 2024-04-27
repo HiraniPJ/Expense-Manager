@@ -139,6 +139,14 @@ def generate_expense_report(month):
             total_expenses += amount
 
 
+    remaining_budget = budget - total_expenses
+    print(f"\nExpense Report for {month}:")
+    for category, amount in expenses_summary.items():
+        print(f"{category}: {amount}£")
+    print(f"Total Expenses: {total_expenses}£") 
+    print(f"Remaining Budget: {remaining_budget}£")
+    return expenses_summary, remaining_budget
+
 def main ():
     print_intro()
     month, budget = set_monthly_budget()
@@ -147,6 +155,7 @@ def main ():
         category = get_category_selection()
         log_expense(month, category)
 
+ 
 
 if __name__=="__main__":
     main()
