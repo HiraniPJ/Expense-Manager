@@ -2,6 +2,8 @@ import os
 import gspread
 from google.oauth2.service_account import Credentials
 from art import text2art
+from prettytable import PrettyTable
+from termcolor import colored
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
