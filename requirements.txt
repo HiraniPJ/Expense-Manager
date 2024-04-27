@@ -1,1 +1,3 @@
-# Your requirements go here
+art==6.2
+prettytable==3.10.0
+termcolor==2.4.0
