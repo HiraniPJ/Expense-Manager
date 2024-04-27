@@ -17,6 +17,13 @@
 <li>As a family, we want to: monitor our collective expenses, to ensure we stay within our budget each month.</li>
 </ol>
 
+<h2>4. UX Goals</h2>
+<ol>
+<li>User-Friendly Interface: Easy navigation and minimalistic design.</li>
+<li>Quick Data Entry: Streamlined process for entering expenses.</li>
+<li>Comprehensive Reporting: Visual charts and categorized expenses.</li>
+</ol>
+
 <h2></h2>
 <p></p>
 <p></p>
