@@ -154,6 +154,10 @@ def main ():
     if confirm_action("Would you like to log an expense? "):
         category = get_category_selection()
         log_expense(month, category)
+    if confirm_action("Would you like to generate an expense report for a month? (y/n)"):
+        expenses_summary, remaining_budget = generate_expense_report(month)
+        print_table()
+    
 
  
 
