@@ -16,18 +16,21 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('Expense-Manager')
 expenses = SHEET.worksheet('expenses')
  
+
+""" Clears termnals for a clean display. """ 
 def clear_terminal():
-    """ Clears termnals for a clean display. """
     os.system('cls' if os.name == 'nt' else 'clear')
 
+
+""" Prints Introductory ASCII art for the application. """
 def print_intro():
-    """ Prints Introductory ASCII art for the application. """
     clear_terminal()
     intro_art = text2art("Expense Manager") 
     print(intro_art)
 
+
+""" Validates if the input value can be converted to the specified data type. """
 def validate_input(input_value, data_type):
-    """ Validates if the input value can be converted to the specified data type. """
     try: 
         if data_type == 'int':
             value = int(input_value)
@@ -37,6 +40,8 @@ def validate_input(input_value, data_type):
     except ValueError:
         return False, None    
     
+
+""" Prompts the user to select a month. """
 def get_month_selection():
     months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
    
@@ -44,11 +49,13 @@ def get_month_selection():
     for i, month in enumerate(months, start=1):
         print(f"{i}. {month}")
     while True:
-        month_index = input("nter the number of the month: ")   
+        month_index = input("Enter the number of the month: ")   
         if month_index.isdigit() and 1 <+ int(month_index) <= 12:
             return months[int(month_index) -1]
         print("Invalid input. Please enter a valid number between 1 and 12.")
 
+
+""" Allows the user to set a budget for a selected month. """
 def set_monthly_budget():
     month = get_month_selection()
     while True:
@@ -56,35 +63,54 @@ def set_monthly_budget():
         valid, budget = validate_input(budget, 'float')     
         if valid: 
             return month, budget  
-        
+ 
+
+""" Updates the Google Sheet with the provided month and budget. """      
 def update_budget_in_sheet(month, budget):    
+
     try:
-        month_cel = expenses.find(month)
+        month_cell = expenses.find(month)
         expenses.update_cell(month_cell.row, 2, budget)    
     except gspread.exceptions.CellNotFound:
         expenses.append_row([month, budget])   
 
-def get_category_selection()
-    categories = {
+
+""" Prompts the user to select an expense category. """
+def get_category_selection():
+categories = {
         1: "Rent",
         2: "Groceries",
         3: "Vehicle",
         4: "Cafe/Restaurant",
         5: "Online Shopping",
         6: "Other"
-    }
+    }   
 print("Select a category:")
 for key, value in categories.items():
     print(f"{key}. {value}")
+while True:
+    category_index = input("Enter the number of the category: ")
+if category_index.isdigit() and 1 <= int(category_index) <= len(categories):
+    return categories[int(category_index)]
+print("invalid input. Please eneter a valid category number.")
+
+
+""" Allows the user to log an expense for a given category. """
+def log_expenses(month,category):
+    amount = input(f"Enter the amount spend on {category} in {month}: ")
+    valid, amount_value = validate_input(amount, 'float')
+    if valid:
+        append_expense_tosheet(month, category, amount)
+   
     
 
 
 
 def main ():
     print_intro()
-    month, budget =set_monthly_budget()
+    month, budget = set_monthly_budget()
     update_budget_in_sheet(month, budget)
-    print(f"Budget of {budget} has beene set for {month}.")
+    print(f"Budget of {budget} has been set for {month}.")
 
 
 if __name__=="__main__":
