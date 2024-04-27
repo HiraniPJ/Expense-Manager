@@ -77,7 +77,7 @@ def update_budget_in_sheet(month, budget):
 
 """ Prompts the user to select an expense category. """
 def get_category_selection():
-categories = {
+    categories = {
         1: "Rent",
         2: "Groceries",
         3: "Vehicle",
@@ -85,14 +85,14 @@ categories = {
         5: "Online Shopping",
         6: "Other"
     }   
-print("Select a category:")
-for key, value in categories.items():
-    print(f"{key}. {value}")
-while True:
-    category_index = input("Enter the number of the category: ")
-if category_index.isdigit() and 1 <= int(category_index) <= len(categories):
-    return categories[int(category_index)]
-print("invalid input. Please eneter a valid category number.")
+    print("Select a category:")
+    for key, value in categories.items():
+        print(f"{key}. {value}")
+    while True:
+        category_index = input("Enter the number of the category: ")
+        if category_index.isdigit() and 1 <= int(category_index) <= len(categories):
+            return categories[int(category_index)]
+        print("invalid input. Please eneter a valid category number.")
 
 
 """ Allows the user to log an expense for a given category. """
@@ -100,8 +100,20 @@ def log_expense(month, category):
     amount = input(f"Enter the amount spend on {category} in {month}: ")
     valid, amount_value = validate_input(amount, 'float')
     if valid:
-        append_expense_tosheet(month, category, amount)
+        append_expense_to_sheet(month, category, amount)
    
+
+def append_expense_to_sheet(month, category, amount):
+    try:
+        month_row = expenses.find(month).row
+        category_col = expenses.find(category).col
+        current_value = expenses.cell(month_row, category_col).value
+        new_value = float(current_value) + amount if current_value else amount
+        expenses.update_cell(month_row, category_col, new_value)
+    except gspread.exceptions.CellNotFound:
+        print(f"No data found for {month} or {category}, updating records. ")
+        expenses.append_row([month, category, amount])
+
 
 
 
