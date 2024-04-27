@@ -96,13 +96,13 @@ print("invalid input. Please eneter a valid category number.")
 
 
 """ Allows the user to log an expense for a given category. """
-def log_expenses(month,category):
+def log_expense(month, category):
     amount = input(f"Enter the amount spend on {category} in {month}: ")
     valid, amount_value = validate_input(amount, 'float')
     if valid:
         append_expense_tosheet(month, category, amount)
    
-    
+
 
 
 
@@ -111,6 +111,9 @@ def main ():
     month, budget = set_monthly_budget()
     update_budget_in_sheet(month, budget)
     print(f"Budget of {budget} has been set for {month}.")
+    while True:
+        category = get_category_selection()
+        category, expense = log_expense(month, category)
 
 
 if __name__=="__main__":
