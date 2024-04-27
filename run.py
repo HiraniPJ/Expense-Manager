@@ -108,7 +108,7 @@ def log_expense(month, category):
 def append_expense_to_sheet(month, category, amount):
     try:
         month_row = expenses.find(month).row
-        category_col = expenses.find(category).col
+        category_col = expenses.find(category, in_row=1).col
         current_value = expenses.cell(month_row, category_col).value
         new_value = float(current_value) + amount if current_value else amount
         expenses.update_cell(month_row, category_col, new_value)
