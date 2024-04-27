@@ -77,8 +77,8 @@
 <h3>Visual Simplicity</h3>
 <p>The interface is designed with a focus on clarity and minimalism to prevent user fatigue and enhance readability.</p>
 
-
-<h3></h3>
+<h3>Aesthetics</h3>
+<p>The UI will use a calm color palette to encourage stress-free financial management and incorporate responsive design principles to ensure functionality across devices.</p>
 <h3></h3>
 <h3></h3>
 <h3></h3>
