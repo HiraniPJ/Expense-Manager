@@ -102,7 +102,7 @@ def log_expense(month, category):
     if valid:
         append_expense_to_sheet(month, category, amount)
    
-
+""" Appends the expense data to Google Sheet under the specified month. """
 def append_expense_to_sheet(month, category, amount):
     try:
         month_row = expenses.find(month).row
@@ -115,17 +115,24 @@ def append_expense_to_sheet(month, category, amount):
         expenses.append_row([month, category, amount])
 
 
-
+""" Prompts the user for confirmation. Returns True if confirmed. """
+def confirm_action(prompt):
+    response = input(prompt + " (y/n): ").lower()
+    if response == 'y':
+        return True
+    elif response == 'n':
+        return False
+    else:
+        print("Invalid repsonse.Please answer 'y' or 'n'.")
 
 
 def main ():
     print_intro()
     month, budget = set_monthly_budget()
     update_budget_in_sheet(month, budget)
-    print(f"Budget of {budget} has been set for {month}.")
-    while True:
+    if confirm_action("Would you like to log an expense? (y/n)"):
         category = get_category_selection()
-        category, expense = log_expense(month, category)
+        log_expense(month, category)
 
 
 if __name__=="__main__":
