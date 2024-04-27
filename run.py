@@ -123,14 +123,14 @@ def confirm_action(prompt):
     elif response == 'n':
         return False
     else:
-        print("Invalid repsonse.Please answer 'y' or 'n'.")
+        print("Invalid repsonse. Please answer 'y' or 'n'.")
 
 
 def main ():
     print_intro()
     month, budget = set_monthly_budget()
     update_budget_in_sheet(month, budget)
-    if confirm_action("Would you like to log an expense? (y/n)"):
+    if confirm_action("Would you like to log an expense? "):
         category = get_category_selection()
         log_expense(month, category)
 
