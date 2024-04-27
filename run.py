@@ -121,7 +121,10 @@ def append_expense_to_sheet(month, category, amount):
 def generate_expense_report(month):
     expenses_summary = {}
     total_expenses = 0
-    budget = float(expenses.cell(1,2).value)
+
+    try:
+        budget_row = expenses.find(month).row
+        budget = float(expenses.cell(1,2).value)
     for col in range(3,9):
         category = expenses.cell(1, col).value
         amount = expenses.cell(2, col). value
