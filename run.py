@@ -110,11 +110,11 @@ def append_expense_to_sheet(month, category, amount):
         month_row = expenses.find(month).row
         category_col = expenses.find(category, in_row=1).col
         current_value = expenses.cell(month_row, category_col).value
-        new_value = float(current_value) + amount if current_value else amount
+        new_value = float(current_value or 0) + amount 
         expenses.update_cell(month_row, category_col, new_value)
     except gspread.exceptions.CellNotFound:
         print(f"No data found for {month} or {category}, updating records. ")
-        expenses.append_row([month, category, amount])
+        expenses.append_row([month] + [""] * (category_col - 2) + [amount])
 
 
 """ Generates an expense report for the given month. """
