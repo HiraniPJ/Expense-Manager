@@ -79,8 +79,17 @@
 
 <h3>Aesthetics</h3>
 <p>The UI will use a calm color palette to encourage stress-free financial management and incorporate responsive design principles to ensure functionality across devices.</p>
+
+<h3>Wireframes/Flowchart</h3>
+
+
+<h3><b>Features</b></h3>
+<p>Monthly Budget Setting: Set a monthly budget for various categories.</p>
+<p>Expense Logging: Log expenses by category for any selected month.</p>
+<p>Report Generation: Generate and view a monthly expense report.</p>
+
 <h3></h3>
-<h3></h3>
+
 <h3></h3>
 <h2><b></b></h2>
 <h2><b></b></h2>
