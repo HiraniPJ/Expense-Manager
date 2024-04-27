@@ -1,31 +1,21 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1>Expense Manager</h1>
+<h2>1. Overview</h2>
+<p>Expense Manager is a tool designed to help individuals and families keep track of their monthly expenses efficiently using Google Spreadsheets. This system simplifies financial monitoring and budgeting, offering users an intuitive interface to input, analyze, and visualize their spending habits over time.</p>
 
-Welcome USER_NAME,
+<h2>2. Goals</h2>
+<p>The primary goal of Expense Manager is to provide a user-friendly platform that makes the task of managing personal finances easy and accessible for everyone, regardless of their technical expertise. The system aims to encourage better financial management and planning.</p>
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
-
-## Reminders
-
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
-
-## Creating the Heroku app
-
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
-
-1. `heroku/python`
-2. `heroku/nodejs`
-
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
-
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+<h2>User Stories</h2>
+<ol>
+<li>As a user, I want to: easily enter my expenses, so I can keep accurate track of my spending without much effort.</li>
+<li>As a budget-conscious individual, I want to: visualize my monthly spending patterns, so I can identify areas where I can save money.</li>
+<li>As a family, we want to: monitor our collective expenses, to ensure we stay within our budget each month.</li>
+</ol>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
