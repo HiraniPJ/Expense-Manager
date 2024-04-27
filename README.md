@@ -85,8 +85,11 @@
 
 <h3><b>Features</b></h3>
 <p>Monthly Budget Setting: Set a monthly budget for various categories.</p>
+<img src ="Assets/readmeimages/budget.setting.png" alt ="Monthly Budget">
 <p>Expense Logging: Log expenses by category for any selected month.</p>
+<img src ="Assets/readmeimages/expense.logging.png" alt ="Expense Logging">
 <p>Report Generation: Generate and view a monthly expense report.</p>
+<img src ="Assets/readmeimages/" alt ="">
 
 <h3></h3>
 
