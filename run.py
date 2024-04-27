@@ -169,10 +169,8 @@ def main ():
         log_expense(month, category)
     if confirm_action("Would you like to generate an expense report for a month? (y/n)"):
         expenses_summary, remaining_budget = generate_expense_report(month)
-        print_table()
+        print_table(expenses_summary, f"Expense Report for {month}")
     
-
- 
 
 if __name__=="__main__":
     main()
