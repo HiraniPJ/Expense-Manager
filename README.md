@@ -62,7 +62,16 @@
  <h2><b>Scope of Application</b><h2>
  <p>Expense Manager aims to cater to individuals looking for a simple yet effective way to track their personal finances, especially suited for those who prefer using Google Spreadsheets for data management.</p>
 
-<h2><b></b></h2>
+<h2><b>Stategy</b></h2>
+<h3>Target Audience</h3>
+<ol>
+<li>Young adults managing their finances for the first time.</li>
+<li>Experienced budgeters looking for a straightforward solution.</li>
+</ol>
+<h3></h3>
+<h3></h3>
+<h3></h3>
+<h3></h3>
 <h2><b></b></h2>
 <h2><b></b></h2>
 <h2><b></b></h2>
