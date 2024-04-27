@@ -91,7 +91,16 @@
 <p>Report Generation: Generate and view a monthly expense report.</p>
 <img src ="Assets/readmeimages/" alt ="">
 
-<h3></h3>
+<h3><b>Technologies</b></h3>
+<ul>
+<li>Python: Python 3.8 or above.</li>
+<li>Google Sheet API: Manage and store data.</li>
+<li>gspread: Python API for Google Sheets.</li>
+<li>PrettyTable: For displaying data in a tabular format in the console.</li>
+<li>Termcolor & Colorama: For colored console output.</li>
+<li>Art: For ASCII art representations.</li>
+</ul>
+
 
 <h3></h3>
 <h2><b></b></h2>
