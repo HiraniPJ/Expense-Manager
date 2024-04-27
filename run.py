@@ -125,6 +125,19 @@ def confirm_action(prompt):
     else:
         print("Invalid repsonse. Please answer 'y' or 'n'.")
 
+""" Generates an expense report for the given month. """
+def generate_expense_report(month):
+    expenses_summary = {}
+    total_expenses = 0
+    budget = float(expenses.cell(1,2).value)
+    for col in range(3,9):
+        category = expenses.cell(1, col).value
+        amount = expenses.cell(2, col). value
+        if amount:
+            amount = float(amount)
+            expenses_summary[category] = amount
+            total_expenses += amount
+
 
 def main ():
     print_intro()
