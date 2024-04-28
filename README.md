@@ -238,10 +238,19 @@ Use the GitHub interface to upload your project files directly to your new repos
 <li>Manually enter the key-value pairs from your creds.json file into the Config Vars section.</li>
 <ul>
 </ol>
-<h1><b>Credits</b></h1>
-https://pypi.org/project/art/
-https://pypi.org/project/prettytable/
-https://pypi.org/project/termcolor/
+<h1><b>Acknowlegment</b></h1>
+<ul>
+<li>https://docs.gspread.org/en/v6.0.0/user-guide.html#sharing-a-spreadsheet</li>
+<li>https://pypi.org/project/art/</li>
+<li>https://pypi.org/project/prettytable/</li>
+<li>https://pypi.org/project/termcolor/</li>
+<li>https://learn.codeinstitute.net/</li>
+<li>https://www.w3schools.com/python/default.asp</li>
+<li>https://www.youtube.com/watch?v=HTD86h69PtE</li>
+<li>https://www.youtube.com/watch?v=tMLsR0_2yIE</li>
+<li></li>
+
+</ul>
 <h2><b></b></h2>
 <h2><b></b></h2>
 <h2><b></b></h2>
@@ -251,11 +260,3 @@ https://pypi.org/project/termcolor/
 <h2><b></b></h2>
 <li></li>
 <li></li>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
