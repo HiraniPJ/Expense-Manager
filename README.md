@@ -77,13 +77,13 @@
 <h3>Visual Simplicity</h3>
 <p>The interface is designed with a focus on clarity and minimalism to prevent user fatigue and enhance readability.</p>
 
-<h3>Aesthetics</h3>
+<h2>Aesthetics</h2>
 <p>The UI will use a calm color palette to encourage stress-free financial management and incorporate responsive design principles to ensure functionality across devices.</p>
 
-<h3>Wireframes/Flowchart</h3>
+<h2>Wireframes/Flowchart</h2>
 
 
-<h3><b>Features</b></h3>
+<h2><b>Features</b></h2>
 <p>Monthly Budget Setting: Set a monthly budget for various categories.</p>
 <img src ="Assets/readmeimages/budget.setting.png" alt ="Monthly Budget">
 <p>Expense Logging: Log expenses by category for any selected month.</p>
@@ -91,7 +91,7 @@
 <p>Report Generation: Generate and view a monthly expense report.</p>
 <img src ="Assets/readmeimages/generate.report.png" alt ="Report Generation">
 
-<h3><b>Technologies</b></h3>
+<h2><b>Technologies</b></h2>
 <ul>
 <li>Python: Python 3.8 or above.</li>
 <li>Google Sheet API: Manage and store data.</li>
@@ -101,7 +101,35 @@
 <li>Art: For ASCII art representations.</li>
 </ul>
 
-<h3><b>Validator Testing</b></h3>
+<h2><b>Validator Testing</b></h2>
+<p>Expense Manager app was tested using Python Linter, and the following are the initial Results of the errors. <p>
+<li>21: E302 expected 2 blank lines, found 1</li>
+<li>22: E117 over-indented</li>
+<li>24: W293 blank line contains whitespace</li>
+<li>25: E302 expected 2 blank lines, found 1</li>
+<li>28: W291 trailing whitespace</li>
+<li>31: W293 blank line contains whitespace</li>
+<li>42: W293 blank line contains whitespace</li>
+<li>47: E501 line too long (128 > 79 characters)</li>
+<li>53: W291 trailing whitespace</li>
+<li>55: E211 whitespace before '['</li>
+<li>57: W293 blank line contains whitespace</li>
+<li>66: W291 trailing whitespace</li>
+<li>87: W291 trailing whitespace</li>
+<li>93: E501 line too long (84 > 79 characters)</li>
+<li>99: E303 too many blank lines (3)</li>
+<li>105: W293 blank line contains whitespace</li>
+<li>121: E303 too many blank lines (3)</li>
+<li>128: W293 blank line contains whitespace</li>
+<li>141: W291 trailing whitespace</li>
+<li>159: E303 too many blank lines (3)</li>
+<li>177: E501 line too long (84 > 79 characters)</li>
+<li>181: E305 expected 2 blank lines after class or function definition, found 1</li>
+<li>181: E225 missing whitespace around operator</li>
+
+<p>The errors were tthen later fixed and here is the final results of the Testing</p>
+
+<img src="Assets\readmeimages\pythonlinternoerror.JPG" alt = "Test-Results">
 
 <h2>Github Process</h2>
 
@@ -129,7 +157,7 @@
 <li>Above the list of files, click the button that says 'Gitpod'.</li>
 <li>This will open a new Gitpod workspace with your cloned repository ready to use.</li>
 
-<h3><b>Heroku Deployment</b></h3>
+<h2><b>Heroku Deployment</b></h2>
 
 
 <h1><b>Credits</b></h1>
