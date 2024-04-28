@@ -59,7 +59,7 @@
 <li>Visual report of the monthly expense potrayed on a table format.</li>
 </ul>
 
- <h2><b>Scope of Application</b><h2>
+ <h2><b>Scope of Application</b></h2>
  <p>Expense Manager aims to cater to individuals looking for a simple yet effective way to track their personal finances, especially suited for those who prefer using Google Spreadsheets for data management.</p>
 
 <h2><b>Strategy</b></h2>
@@ -89,7 +89,7 @@
 <p>Expense Logging: Log expenses by category for any selected month.</p>
 <img src ="Assets/readmeimages/expense.logging.png" alt ="Expense Logging">
 <p>Report Generation: Generate and view a monthly expense report.</p>
-<img src ="Assets/readmeimages/" alt ="">
+<img src ="Assets/readmeimages/generate.report.png" alt ="Report Generation">
 
 <h3><b>Technologies</b></h3>
 <ul>
