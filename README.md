@@ -27,7 +27,7 @@
 <h2><b>Structure</b></h2>
 <ul>
 <li>Select Month for input.</li>
-<ol>
+<ol type="1.">
 <li>January</li>
 <li>February</li>
 <li>March</li>
@@ -45,7 +45,7 @@
 <li>Budget input prompt.</li>
 <li>Option to log the expense on the spreadsheet.</li>
 <li>List of categories of expenses for selection.</li>
-<ol>
+<ol type="1.">
 <li>Rent</li>
 <li>Groceries</li>
 <li>Vehicle</li>
@@ -126,8 +126,8 @@
 <li>177: E501 line too long (84 > 79 characters)</li>
 <li>181: E305 expected 2 blank lines after class or function definition, found 1</li>
 <li>181: E225 missing whitespace around operator</li>
-
-<p>The errors were tthen later fixed and here is the final results of the Testing</p>
+<br>
+<p><b>The errors were then later fixed and here is the final results of the Testing</b></p>
 
 <img src="Assets\readmeimages\pythonlinternoerror.JPG" alt = "Test-Results">
 
