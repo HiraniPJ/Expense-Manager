@@ -137,9 +137,9 @@ def generate_expense_report(month):
         remaining_budget = budget - total_expenses
         print(f"\nExpense Report for {month}:")
         for category, amount in expenses_summary.items():
-            print(f"{category}: {amount}£")
-            print(f"Total Expenses: {total_expenses}£")
-            print(f"Remaining Budget: {remaining_budget}£")
+            print(f"{category}: £{amount}")
+            print(f"Total Expenses: £{total_expenses}")
+            print(f"Remaining Budget: £{remaining_budget}")
     except gspread.exceptions.CellNotFound:
         print(f"No Budget data found for {month}.")
     return expenses_summary, remaining_budget
