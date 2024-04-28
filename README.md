@@ -69,6 +69,10 @@ Open the specified Google Sheet and worksheet.
 <li>Close the application or restart the process.</li>
 </ul>
 
+
+<h2>Flow Process</h2>
+<img src="Assets\readmeimages\operation.flow.diagram.JPG" alt="process diagram">
+
 <h2><b>Structure</b></h2>
 <li>Select Month for input.</li>
 <ol type="1.">
@@ -268,5 +272,4 @@ Use the GitHub interface to upload your project files directly to your new repos
 <li>https://www.w3schools.com/python/default.asp</li>
 <li>https://www.youtube.com/watch?v=HTD86h69PtE</li>
 <li>https://www.youtube.com/watch?v=tMLsR0_2yIE</li>
-<li></li>
 </ul>
