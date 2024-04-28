@@ -180,6 +180,14 @@ Open the specified Google Sheet and worksheet.
 
 <img src="Assets\readmeimages\pythonlinternoerror.JPG" alt = "Test-Results">
 
+<h2>User Testing</h2>
+<h3>1. Errors</h3>
+<img src="Assets\readmeimages\error.file.png" alt = "Error file1.">
+
+<img src="Assets\readmeimages\error.file.png" alt = "Error file1.">
+
+
+
 <h1><b>Heroku Deployment</b></h1>
 <h2>Step-by-Step Guide</h2>
 <h3>Step 1: Prepare Your Application</h3>
@@ -251,14 +259,4 @@ Use the GitHub interface to upload your project files directly to your new repos
 <li>https://www.youtube.com/watch?v=HTD86h69PtE</li>
 <li>https://www.youtube.com/watch?v=tMLsR0_2yIE</li>
 <li></li>
-
 </ul>
-<h2><b></b></h2>
-<h2><b></b></h2>
-<h2><b></b></h2>
-<h2><b></b></h2>
-<h2><b></b></h2>
-<h2><b></b></h2>
-<h2><b></b></h2>
-<li></li>
-<li></li>
