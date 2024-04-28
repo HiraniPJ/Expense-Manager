@@ -137,6 +137,8 @@ Open the specified Google Sheet and worksheet.
 <img src ="Assets/readmeimages/expense.logging.png" alt ="Expense Logging">
 <p>Report Generation: Generate and view a monthly expense report.</p>
 <img src ="Assets/readmeimages/generate.report.png" alt ="Report Generation">
+<p>Google Spreadsheet to log all the expenses</p>
+<img src="Assets\readmeimages\Expensemanagerspradsheet.JPG" alt="Google Spreadsheet">
 
 <h2><b>Technologies</b></h2>
 <ul>
