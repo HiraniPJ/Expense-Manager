@@ -24,6 +24,51 @@
 <li>Comprehensive Reporting: Visual charts and categorized expenses.</li>
 </ul>
 
+<h2>Process Flow Guide</h2>
+<ol type="1.">
+<li><b>Start Application</b></li>
+Initialize Google Sheets API with credentials.
+Open the specified Google Sheet and worksheet.
+<li><b>Print Intro</b></li>
+<ul>
+<li>Clear the terminal screen.
+<li>Display ASCII art title "Expense Manager".
+<ul>
+<li><b>Set Monthly Budget</b></li>
+<li>Prompt the user to select a month.</li>
+<li>Ask the user to input a budget for the selected month.</li>
+<li>Validate the entered budget (ensure it's a valid float).</li>
+<li>Update the budget in the Google Sheet.</li>
+</ul>
+<li><b>Log Expense (Optional)</b></li>
+<ul>
+<li>Prompt the user if they want to log an expense.
+<li>If yes:</li>
+</ul>
+<ul>
+<li>Ask the user to select an expense category.</li>
+<li>Ask the user to input the expense amount for the chosen category.</li>
+<li>Validate the expense amount (ensure it's a valid float).</li>
+<li>Append the expense to the Google Sheet.</li>
+</ul>
+</ul>
+
+<li><b>Generate Expense Report (Optional)</b></li>
+<ul>
+</li>Prompt the user if they want to generate an expense report.</li>
+</li>If yes:</li>
+</ul>
+<ul>
+<li>Retrieve all expenses for the selected month from the Google Sheet.</li>
+<li>Calculate total expenses and remaining budget.</li>
+<li>Display the expense report in a formatted table.</li>
+</ul>
+</ul>
+<li><b>End Application</b></li>
+<ul>
+<li>Close the application or restart the process.</li>
+</ul>
+
 <h2><b>Structure</b></h2>
 <li>Select Month for input.</li>
 <ol type="1.">
