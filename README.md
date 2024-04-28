@@ -157,9 +157,66 @@
 <li>Above the list of files, click the button that says 'Gitpod'.</li>
 <li>This will open a new Gitpod workspace with your cloned repository ready to use.</li>
 
-<h2><b>Heroku Deployment</b></h2>
+<h1><b>Heroku Deployment</b></h1>
+<h2>Step-by-Step Guide</h2>
+<h3>Step 1: Prepare Your Application</h3>
+<ol type="1.">
+<li><b>Create Your Application:</b></li>
+<li>Develop your application locally in your preferred programming language. Ensure it works as intended on your local machine.</li>
+<li><b>Prepare Necessary Files:</b></li>
+<li>Ensure you have all necessary files for your application, such as run.py for a Python app, or equivalent for other languages.</li>
+Create a <b>requirements.txt</b> file that lists all the dependencies your application needs.</li>
+<li><b>Configuration Files:</b></li>
+<li>If your application requires environment-specific settings, prepare these in a format that can be easily configured on Heroku.</li>
+</ol>
+
+<ol type="1.">
+<h2>Step 2: Create and Configure creds.json</h2>
+<ul>
+<li><b>Create a creds.json File:</b></li>
+<li>This file should contain all necessary credentials and configuration needed for your application to run, such as API keys or database URLs.<li>
+</ul>
+</ol>
+
+<h2>Step 3: Upload Your Project to GitHub</h2>
+<ol type="1.">
+<li><b>Create a New Repository:</b></li>
+<ul>
+<li>Log into your GitHub account.<li>
+<li>Create a new repository and name it appropriately for your project.<li>
+<li><b>Upload Your Files:</b></li>
+Use the GitHub interface to upload your project files directly to your new repository. You can do this by navigating to the repository, clicking on 'Add file', and then 'Upload files'.<li>
+<li><b>Exclude creds.json:<li><b>
+<ol>
+<li>Do not upload creds.json to GitHub to keep sensitive information secure.<li>
+</ul>
+</ol>
+
+<h2>Step 4: Deploy to Heroku</h2>
+<ol type="1.">
+<li><b>Create a New Heroku App:</b></li>
+<ul>
+<li>Log into your Heroku account.</li>
+<li>Go to the Dashboard and create a new app by selecting 'New' and then 'Create new app'. Follow the prompts to configure your app's name and region.</li>
+<li><b>Connect Heroku to GitHub:</b></li>
+<li>In your Heroku app's dashboard, navigate to the 'Deploy' section.</li>
+<li>Select 'GitHub' as the deployment method.</li>
+<li>Connect your Heroku account to your GitHub account and select the repository you want to deploy.</li>
+<li><b>Deploy Your Application:</b></li>
+<li>Still in the 'Deploy' section, scroll down to 'Manual deploy', choose the branch you want to deploy, and then click 'Deploy Branch'.</li>
+</ul>
+</ol>
 
 
+<h2>Step 5: Manually Add creds.json on Heroku</h2>
+<ol type="1.">
+<li><b>Add Configuration Variables:</b></li>
+<ul>
+<li>In the Heroku Dashboard for your app, go to 'Settings'.</li>
+<li>Scroll down to 'Config Vars' and click 'Reveal Config Vars'.</li>
+<li>Manually enter the key-value pairs from your creds.json file into the Config Vars section.</li>
+<ul>
+</ol>
 <h1><b>Credits</b></h1>
 
 
