@@ -183,10 +183,20 @@ Open the specified Google Sheet and worksheet.
 <h2>User Testing</h2>
 <h3>1. Errors</h3>
 <img src="Assets\readmeimages\error.file.png" alt = "Error file1.">
+<h2>Solution</h2>
+<img src="Assets\readmeimages\categoryerrorsolved.JPG" alt = "solved error1">
+<br>
 
-<img src="Assets\readmeimages\error.file.png" alt = "Error file1.">
+<h3>2.Float Error</h3>
+<img src="Assets\readmeimages\float.error.JPG" alt = "Error file2.">
+<h2>Solution</h2>
+<img src="Assets\readmeimages\floaterrorsolved.JPG" alt = "solved error2">
 
+<h2>Terminal Results</h2>
+<img src="Assets\readmeimages\full-code-without-errors.JPG" alt = "No error terminal">
 
+<h2>Spreadsheet</h2>
+<img src="Assets\readmeimages\spreadsheettested.JPG" alt = "No error terminal">
 
 <h1><b>Heroku Deployment</b></h1>
 <h2>Step-by-Step Guide</h2>
