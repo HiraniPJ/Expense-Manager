@@ -45,6 +45,7 @@
 <li>Budget input prompt.</li>
 <li>Option to log the expense on the spreadsheet.</li>
 <li>List of categories of expenses for selection.</li>
+</ul>
 <ol type="1.">
 <li>Rent</li>
 <li>Groceries</li>
@@ -53,6 +54,7 @@
 <li>Online Shopping</li>
 <li>Other</li>
 </ol>
+<ul>
 <li>Category input prompt.</li>
 <li>Expenses spend prompt with validation.</li>
 <li>Generate expense report prompt with validation.</li>
@@ -160,7 +162,7 @@ Create a <b>requirements.txt</b> file that lists all the dependencies your appli
 <li>Create a new repository and name it appropriately for your project.</li>
 <li><b>Upload Your Files:</b></li>
 Use the GitHub interface to upload your project files directly to your new repository. You can do this by navigating to the repository, clicking on 'Add file', and then 'Upload files'.</li>
-<li><b>Exclude creds.json:<li><b>
+<li><b>Exclude creds.json:<li></b>
 <ol>
 <li>Do not upload creds.json to GitHub to keep sensitive information secure.</li>
 </ul>
@@ -192,8 +194,9 @@ Use the GitHub interface to upload your project files directly to your new repos
 <ul>
 </ol>
 <h1><b>Credits</b></h1>
-
-
+https://pypi.org/project/art/
+https://pypi.org/project/prettytable/
+https://pypi.org/project/termcolor/
 <h2><b></b></h2>
 <h2><b></b></h2>
 <h2><b></b></h2>
