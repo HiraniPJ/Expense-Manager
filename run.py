@@ -49,15 +49,15 @@ def get_month_selection():
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ]
-    print("Select a month:")
-    for i, month in enumerate(months, start=1):
-        print(f"{i}. {month}")
     while True:
-        month_index = input("Enter the number of the month: ")
-        if month_index.isdigit() and 1 <= int(month_index) <= 12:
-            return months[int(month_index) - 1]
-        print("Invalid input. Please enter a valid number between 1 & 12.")
-
+        try:
+            month_index = int(input("Enter the month number (1-12): "))
+            if 1 <= int(month_index) <= 12:
+                return months[month_index - 1]
+            else:
+                print("Invalid choice. Please enter a number between 1 and 12.")
+        except ValueError:
+            print("Invalid input. Please enter a numeric value.")
 
 def set_monthly_budget():
     """Allows the user to set a budget for a selected month."""
