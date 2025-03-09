@@ -184,7 +184,7 @@ def main():
     update_budget_in_sheet(month, budget)
     if confirm_action("Would you like to log an expense? "):
         category = get_category_selection()
-        log_expense(month, category)
+        log_expense(month)
     if confirm_action("Would you like to generate an expense report? "):
         expenses_summary, remaining_budget = generate_expense_report(month)
         report_title = f"Expense Report for {month}"
