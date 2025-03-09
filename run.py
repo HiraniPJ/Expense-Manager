@@ -58,7 +58,7 @@ def get_month_selection():
                 print("Invalid choice. Please enter a number between 1 and 12.")
         except ValueError:
             print("Invalid input. Please enter a numeric value.")
-            
+
 
 def set_monthly_budget():
     """Allows the user to set a budget for a selected month."""
@@ -76,9 +76,16 @@ def update_budget_in_sheet(month, budget):
     """Updates the Google Sheet with the provided month and budget."""
     try:
         month_cell = expenses.find(month)
-        expenses.update_cell(month_cell.row, 2, budget)
+        current_budget = expenses.cell(month_cell.row, 2).value
+        print(f"Current budget for {month}: £{current_budget}")
+        confirm = input("Are you sure you want to update the budget? (y/n): ").lower()
+        if confirm == 'y':
+            expenses.update_cell(month_cell.row, 2, budget)
+            print(f"Budget updated successfully for {month}.")
+        else:
+            print("Budget update cancelled.")
     except gspread.exceptions.CellNotFound:
-        expenses.append_row([month, budget])
+        print(f"No existing budget found for {month}. You may need to add a budget first.")
 
 
 def get_category_selection():
