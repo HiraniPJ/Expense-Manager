@@ -1,5 +1,6 @@
 import os
 import gspread
+import re
 from google.oauth2.service_account import Credentials
 from art import text2art
 from prettytable import PrettyTable
@@ -31,8 +32,8 @@ def print_intro():
     print(intro_art)
 
 
-def validate_input(input_value, data_type):
-    """Validates input based on the type (int for months, float for amounts)"""
+"""def validate_input(input_value, data_type):
+    Validates input based on the type (int for months, float for amounts)
     try:
         if data_type == 'int':
             value = int(input_value)
@@ -40,7 +41,13 @@ def validate_input(input_value, data_type):
             value = float(input_value)
         return True, value
     except ValueError:
-        return False, None
+        return False, None"""
+
+
+def validate_currency_input(amount):
+    """Ensures the amount entered is a valid currency format."""
+    currency_pattern = r"^\d+(\.\d{1,2})?£"
+    return bool(re.match(currency_pattern, amount))
 
 
 def get_month_selection():
@@ -64,12 +71,11 @@ def set_monthly_budget():
     """Allows the user to set a budget for a selected month."""
     month = get_month_selection()
     while True:
-        budget = input(f"Enter the budget for {month}:")
-        valid, budget = validate_input(budget, 'float')
-        if valid:
-            update_budget_in_sheet(month, budget)
-            return month, budget
-            print("Invalid amount. Please enter a valid number.")
+        budget = input(f"Enter the budget for {month}: ")
+        if validate_currency_input(budget):
+            update_budget_in_sheet(month, float(budget))
+            return month, float(budget)
+        print("Invalid amount. Please enter a valid number.")
 
 
 def update_budget_in_sheet(month, budget):
