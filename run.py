@@ -107,10 +107,10 @@ def log_expense(month):
     category = get_category_selection()
     while True:
         amount = input(f"Enter the amount spend on {category} in {month}: ")
-    if validate_currency_input(amount):
-        append_expense_to_sheet(month, category, float(amount))
-        return
-    print("Invalid amount. Please enter a valid number.")
+        if validate_currency_input(amount):
+            append_expense_to_sheet(month, category, float(amount))
+            return
+        print("Invalid amount. Please enter a valid number.")
 
 
 def append_expense_to_sheet(month, category, amount):
