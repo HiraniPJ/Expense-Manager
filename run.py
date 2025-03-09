@@ -33,7 +33,7 @@ expenses = SHEET.worksheet('expenses')
 
 def validate_currency_input(amount):
     """Ensures the amount entered is a valid currency format."""
-    currency_pattern = r"^\d+(\.\d{1,2})?£"
+    currency_pattern = r"^£?\d+(\.\d{1,2})?$"
     return bool(re.match(currency_pattern, amount))
 
 
