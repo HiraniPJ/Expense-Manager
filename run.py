@@ -58,6 +58,7 @@ def get_month_selection():
                 print("Invalid choice. Please enter a number between 1 and 12.")
         except ValueError:
             print("Invalid input. Please enter a numeric value.")
+            
 
 def set_monthly_budget():
     """Allows the user to set a budget for a selected month."""
@@ -66,7 +67,9 @@ def set_monthly_budget():
         budget = input(f"Enter the budget for {month}:")
         valid, budget = validate_input(budget, 'float')
         if valid:
+            update_budget_in_sheet(month, budget)
             return month, budget
+            print("Invalid amount. Please enter a valid number.")
 
 
 def update_budget_in_sheet(month, budget):
