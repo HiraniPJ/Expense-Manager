@@ -6,20 +6,6 @@ from art import text2art
 from prettytable import PrettyTable
 from termcolor import colored
 
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-]
-
-
-CREDS = Credentials.from_service_account_file('creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('Expense-Manager')
-expenses = SHEET.worksheet('expenses')
-
-
 def clear_terminal():
     """Clears terminal for a clean display."""
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -31,17 +17,18 @@ def print_intro():
     intro_art = text2art("Expense Manager")
     print(intro_art)
 
+# Google Sheets Authentication
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+]
 
-"""def validate_input(input_value, data_type):
-    Validates input based on the type (int for months, float for amounts)
-    try:
-        if data_type == 'int':
-            value = int(input_value)
-        elif data_type == 'float':
-            value = float(input_value)
-        return True, value
-    except ValueError:
-        return False, None"""
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('Expense-Manager')
+expenses = SHEET.worksheet('expenses')
 
 
 def validate_currency_input(amount):
