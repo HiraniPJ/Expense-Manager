@@ -102,12 +102,15 @@ def get_category_selection():
             print("Invalid input. Please enter a numeric value.")
 
 
-def log_expense(month, category):
+def log_expense(month):
     """Allows the user to log an expense for a given category."""
-    amount = input(f"Enter the amount spend on {category} in {month}: ")
-    valid, amount_value = validate_input(amount, 'float')
-    if valid:
-        append_expense_to_sheet(month, category, amount_value)
+    category = get_category_selection()
+    while True:
+        amount = input(f"Enter the amount spend on {category} in {month}: ")
+    if validate_currency_input(amount):
+        append_expense_to_sheet(month, category, float(amount))
+        return
+    print("Invalid amount. Please enter a valid number.")
 
 
 def append_expense_to_sheet(month, category, amount):
