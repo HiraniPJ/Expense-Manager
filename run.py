@@ -43,6 +43,9 @@ def get_month_selection():
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ]
+    print("\nSelect a month:")
+    for i, month in enumerate(months, start=1):
+        print(f"{i}. {month}")
     while True:
         try:
             month_index = int(input("Enter the month number (1-12): "))
@@ -91,6 +94,9 @@ def get_category_selection():
         5: "Online Shopping",
         6: "Other"
     }
+    print("\nSelect a category:")
+    for key, value in categories.items():
+        print(f"{key}. {value}")
     while True:
         try:
             cat_choice = int(input("Enter the number of the category: "))
@@ -154,7 +160,7 @@ def generate_expense_report(month):
         print_table(expenses_summary, "Expense Report")
         print(f"Total Expenses: £{total_expenses}")
         print(f"Remaining Budget: £{remaining_budget}")
-        
+
     except gspread.exceptions.CellNotFound:
         print(f"No Budget data found for {month}.")
     return expenses_summary, remaining_budget
