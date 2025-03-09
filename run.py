@@ -120,13 +120,18 @@ def append_expense_to_sheet(month, category, amount):
     """Appends the expense data to Google Sheet under the specified month."""
     try:
         month_row = expenses.find(month).row
-        category_col = expenses.find(category, in_row=1).col
-        current_value = expenses.cell(month_row, category_col).value
-        new_value = float(current_value or 0) + amount
-        expenses.update_cell(month_row, category_col, new_value)
+        category_cell = expenses.find(category, in_row=1)
+        if category_cell:
+            category_col = category_cell.col
+            current_value = expenses.cell(month_row, category_col).value
+            new_value = float(current_value or 0) + amount
+            expenses.update_cell(month_row, category_col, new_value)
+        else:
+            print(f"Category '{category}' not found. Creating a new column.")
+            expenses.append_row([month, category, amount])
     except gspread.exceptions.CellNotFound:
         print(f"No data found for {month} or {category}, updating records.")
-        expenses.append_row([month] + [""] * (category_col - 2) + [amount])
+        expenses.append_row([month, category, amount])
 
 
 def generate_expense_report(month):
