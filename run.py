@@ -139,21 +139,22 @@ def generate_expense_report(month):
     total_expenses = 0
     try:
         budget_row = expenses.find(month).row
-        budget = float(expenses.cell(budget_row, 2).value)
-        for col in range(3, 10):
-            category_row = expenses.find(month).row
+        budget = float(expenses.cell(budget_row, 2).value or 0)
+
+        for col in range(3, expenses.col_count + 1):
             category = expenses.cell(1, col).value
-            amount = expenses.cell(category_row, col).value
+            amount = expenses.cell(budget_row, col).value
             if amount:
                 amount = float(amount)
                 expenses_summary[category] = amount
                 total_expenses += amount
+
         remaining_budget = budget - total_expenses
         print(f"\nExpense Report for {month}:")
-        for category, amount in expenses_summary.items():
-            print(f"{category}: £{amount}")
-            print(f"Total Expenses: £{total_expenses}")
-            print(f"Remaining Budget: £{remaining_budget}")
+        print_table(expenses_summary, "Expense Report")
+        print(f"Total Expenses: £{total_expenses}")
+        print(f"Remaining Budget: £{remaining_budget}")
+        
     except gspread.exceptions.CellNotFound:
         print(f"No Budget data found for {month}.")
     return expenses_summary, remaining_budget
