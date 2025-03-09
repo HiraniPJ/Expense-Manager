@@ -91,14 +91,15 @@ def get_category_selection():
         5: "Online Shopping",
         6: "Other"
     }
-    print("Select a category:")
-    for key, value in categories.items():
-        print(f"{key}. {value}")
     while True:
-        cat_list = input("Enter the number of the category: ")
-        if cat_list.isdigit() and 1 <= int(cat_list) <= len(categories):
-            return categories[int(cat_list)]
-        print("Invalid input. Please enter a valid category number.")
+        try:
+            cat_choice = int(input("Enter the number of the category: "))
+            if cat_choice in categories:
+                return categories[cat_choice]
+            else:
+                print("Invalid input. Please enter a valid category number.")
+        except ValueError:
+            print("Invalid input. Please enter a numeric value.")
 
 
 def log_expense(month, category):
