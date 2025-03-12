@@ -81,7 +81,11 @@ def set_monthly_budget():
             expenses.update_cell(month_cell.row, 2, new_budget)
             print(f"£{add_amount} added. New total budget: £{new_budget} for {month}.")
             return month, new_budget
-
+        elif choice == '3':
+            print("Keeping the existing budget.")
+            return month, current_budget
+        else:
+            print("Invalid choice. Please enter 1, 2, or 3.")
 
 def update_budget_in_sheet(month, budget):
     """Updates the Google Sheet with the provided month and budget."""
