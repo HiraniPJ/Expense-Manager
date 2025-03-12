@@ -60,12 +60,12 @@ def get_month_selection():
 def set_monthly_budget():
     """Allows the user to set a budget for a selected month."""
     month = get_month_selection()
+    month_cell = expenses.find(month, in_column=1)
+    current_budget = float(expenses.cell(month_cell.row, 2).value or 0)
+    print(f"Current budget for {month}: £{current_budget}")
+
     while True:
-        budget = input(f"Enter the budget for {month}: ")
-        if validate_currency_input(budget):
-            update_budget_in_sheet(month, float(budget))
-            return month, float(budget)
-        print("Invalid amount. Please enter a valid number.")
+        
 
 
 def update_budget_in_sheet(month, budget):
