@@ -111,14 +111,18 @@ def get_category_selection():
 
 def log_expense(month):
     """Allows the user to log an expense for a given category."""
-    category = get_category_selection()
     while True:
-        amount = input(f"Enter the amount spend on {category} in {month}: ")
-        if validate_currency_input(amount):
-            append_expense_to_sheet(month, category, float(amount))
-            return
-        print("Invalid amount. Please enter a valid number.")
+        category = get_category_selection()
+        while True:
+            amount = input(f"Enter the amount spend on {category} in {month}: £")
+            if validate_currency_input(amount):
+                append_expense_to_sheet(month, category, float(amount))
+                print(f"Expense of £{amount} logged for {category} in {month}.")
+                break
+            print("Invalid amount. Please enter a valid number.")
 
+        if not confirm_action("Would you like to log another expense? "):
+            break
 
 def append_expense_to_sheet(month, category, amount):
     """Appends the expense data to Google Sheet under the specified month."""
