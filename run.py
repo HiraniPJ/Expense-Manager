@@ -70,6 +70,8 @@ def set_monthly_budget():
         print("2. Add to the budget")
         print("3. Keep current budget")
 
+        choice = input("Enter your choice (1/2/3): ")
+
         if choice == '1':
             new_budget = float(input(f"Enter new budget for {month}: £"))
             expenses.update_cell(month_cell.row, 2, new_budget)
