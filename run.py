@@ -192,14 +192,19 @@ def main():
     print_intro()
     month, budget = set_monthly_budget()
     update_budget_in_sheet(month, budget)
-    if confirm_action("Would you like to log an expense? "):
-        category = get_category_selection()
-        log_expense(month)
+
+    while True:
+        if confirm_action("Would you like to log an expense? "):
+            log_expense(month)
+        else: 
+            break
+
     if confirm_action("Would you like to generate an expense report? "):
         expenses_summary, remaining_budget = generate_expense_report(month)
         report_title = f"Expense Report for {month}"
         print_table(expenses_summary, report_title)
 
+    print("Exiting program. Have a great day!")
 
 if __name__ == "__main__":
     main()
