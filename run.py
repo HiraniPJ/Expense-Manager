@@ -71,7 +71,8 @@ def set_monthly_budget():
 def update_budget_in_sheet(month, budget):
     """Updates the Google Sheet with the provided month and budget."""
     try:
-        month_cell = expenses.find(month)
+        month = month.strip().capitalize()
+        month_cell = expenses.find(month, in_column=1)
         current_budget = expenses.cell(month_cell.row, 2).value
         print(f"Current budget for {month}: £{current_budget}")
         confirm = input("Are you sure you want to update the budget? (y/n): ").lower()
