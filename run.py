@@ -75,7 +75,12 @@ def set_monthly_budget():
             expenses.update_cell(month_cell.row, 2, new_budget)
             print(f"Budget updated to £{new_budget} for {month}.")
             return month, new_budget
-
+        elif choice == '2':
+            add_amount = float(input(f"Enter amount to add to the budget: £"))
+            new_budget = current_budget + add_amount
+            expenses.update_cell(month_cell.row, 2, new_budget)
+            print(f"£{add_amount} added. New total budget: £{new_budget} for {month}.")
+            return month, new_budget
 
 
 def update_budget_in_sheet(month, budget):
