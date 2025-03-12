@@ -65,9 +65,13 @@ def set_monthly_budget():
     print(f"Current budget for {month}: £{current_budget}")
 
     while True:
+        print("\nOptions:")
+        print("1. Update the budget (Replace old value)")
+        print("2. Add to the budget")
+        print("3. Keep current budget")
+
+
         
-
-
 def update_budget_in_sheet(month, budget):
     """Updates the Google Sheet with the provided month and budget."""
     try:
