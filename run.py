@@ -220,7 +220,6 @@ def confirm_action(prompt):
 def main():
     print_intro()
     month, budget = set_monthly_budget()
-    update_budget_in_sheet(month, budget)
 
     while True:
         if confirm_action("Would you like to log an expense? "):
