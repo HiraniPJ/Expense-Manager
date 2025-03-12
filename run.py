@@ -58,7 +58,7 @@ def get_month_selection():
 
 
 def set_monthly_budget():
-    """Allows the user to set a budget for a selected month."""
+    """Allows the user to check the current budget and decide whether to update or add to it."""
     month = get_month_selection()
     month_cell = expenses.find(month, in_column=1)
     current_budget = float(expenses.cell(month_cell.row, 2).value or 0)
@@ -70,24 +70,28 @@ def set_monthly_budget():
         print("2. Add to the budget")
         print("3. Keep current budget")
 
-        choice = input("Enter your choice (1/2/3): ")
+        choice = input("Enter your choice (1/2/3): ").strip()
 
         if choice == '1':
             new_budget = float(input(f"Enter new budget for {month}: £"))
             expenses.update_cell(month_cell.row, 2, new_budget)
             print(f"Budget updated to £{new_budget} for {month}.")
             return month, new_budget
+
         elif choice == '2':
             add_amount = float(input(f"Enter amount to add to the budget: £"))
             new_budget = current_budget + add_amount
             expenses.update_cell(month_cell.row, 2, new_budget)
             print(f"£{add_amount} added. New total budget: £{new_budget} for {month}.")
             return month, new_budget
+
         elif choice == '3':
             print("Keeping the existing budget.")
             return month, current_budget
+
         else:
             print("Invalid choice. Please enter 1, 2, or 3.")
+
 
 def update_budget_in_sheet(month, budget):
     """Updates the Google Sheet with the provided month and budget."""
