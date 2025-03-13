@@ -191,6 +191,12 @@ def generate_expense_report(month):
                 total_expenses += amount
 
         remaining_budget = budget - total_expenses
+
+        print(f"\nExpense Report for {month}:")
+        print(f"Total Budget: £{budget}")
+        print(f"Total Expenses: £{total_expenses}")
+        print(f"Remaining Budget: £{remaining_budget}")
+
         return expenses_summary, remaining_budget
 
 
