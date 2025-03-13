@@ -134,7 +134,7 @@ def get_category_selection():
             if cat_choice in categories:
                 return categories[cat_choice]
             else:
-                print(colored("Invalid input. Please enter a valid category number.", "orange"))
+                print(colored("Invalid input. Please enter a valid category number.", "yellow"))
         except ValueError:
             print("Invalid input. Please enter a numeric value.")
 
@@ -149,7 +149,7 @@ def log_expense(month):
                 append_expense_to_sheet(month, category, float(amount))
                 print(f"Expense of £{amount} logged for {category} in {month}.")
                 break
-            print(colored("Invalid amount. Please enter a valid number.", "orange"))
+            print(colored("Invalid amount. Please enter a valid number.", "yellow"))
 
         if not confirm_action("Would you like to log another expense? "):
             break
