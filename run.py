@@ -224,11 +224,8 @@ def main():
     print_intro()
     month, budget = set_monthly_budget()
 
-    while True:
-        if confirm_action("Would you like to log an expense? "):
+    while confirm_action("Would you like to log an expense? "):
             log_expense(month)
-        else: 
-            break
 
     if confirm_action("Would you like to generate an expense report? "):
         expenses_summary, remaining_budget = generate_expense_report(month)
