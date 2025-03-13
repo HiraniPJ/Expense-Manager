@@ -14,8 +14,8 @@ def clear_terminal():
 def print_intro():
     """Prints Introductory ASCII art for the application."""
     clear_terminal()
-    intro_art = text2art("Expense Manager")
-    print(colored(intro_art, "cyan"))
+    intro_art = text2art("Expense")
+    print(colored(intro_art, "cyan", attrs=["bold"]))
 
 # Google Sheets Authentication
 SCOPE = [
@@ -43,7 +43,7 @@ def get_month_selection():
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ]
-    print(colored("\nSelect a month:", "yellow"))
+    print("\nSelect a month:", attrs=["bold"])
     for i, month in enumerate(months, start=1):
         print(colored(f"{i}. {month}", "yellow"))
     while True:
@@ -65,7 +65,7 @@ def set_monthly_budget():
     print(f"Current budget for {month}: £{current_budget}")
 
     while True:
-        print("\nOptions:")
+        print("\nOptions:", attrs=["bold"])
         print("1. Update the budget (Replace old value)")
         print("2. Add to the budget")
         print("3. Keep current budget")
@@ -125,7 +125,7 @@ def get_category_selection():
         5: "Online Shopping",
         6: "Other"
     }
-    print("\nSelect a category:")
+    print("\nSelect a category:", attrs=["bold"])
     for key, value in categories.items():
         print(colored(f"{key}. {value}", "green"))
     while True:
@@ -192,7 +192,7 @@ def generate_expense_report(month):
 
         remaining_budget = budget - total_expenses
 
-        print(colored(f"\n📊 Expense Report for {month}:", "cyan"))
+        print(colored(f"\n📊 Expense Report for {month}:", "cyan", attrs=["bold"]))
         print(colored(f"💰 Total Budget: £{budget}", "green"))
         print(colored(f"💸 Total Expenses: £{total_expenses}", "yellow"))
         print(colored(f"💵 Remaining Budget: £{remaining_budget}", "green" if remaining_budget >= 0 else "red"))
@@ -243,7 +243,7 @@ def main():
         report_title = f"Expense Report for {month}"
         print_table(expenses_summary, report_title)
 
-    print(colored("👋 Exiting program. Have a great day!", "cyan"))
+    print(colored("👋 Exiting program. Have a great day!", "cyan", attrs=["bold"]))
 
 if __name__ == "__main__":
     main()
