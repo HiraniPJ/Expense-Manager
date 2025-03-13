@@ -86,6 +86,11 @@ def set_monthly_budget():
             return month, new_budget
 
         elif choice == '3':
+            if current_budget == 0:
+                print("Warning: Your budget is set to £0. Are you sure you want to continue?")
+                confirm = input("Do you want to proceed without setting a budget? (y/n): ").strip().lower()
+                if confirm == 'n':
+                    continue
             print("Keeping the existing budget.")
             return month, current_budget
 
