@@ -197,6 +197,11 @@ def generate_expense_report(month):
         print(colored(f"💸 Total Expenses: £{total_expenses}", "yellow"))
         print(colored(f"💵 Remaining Budget: £{remaining_budget}", "green" if remaining_budget >= 0 else "red"))
 
+        if remaining_budget < 0:
+            print(colored("⚠️ Warning: Your expenses have exceeded your budget!", "red", attrs=["bold"]))
+        else:
+            print(colored("✅ Well done! You are under your budget.", "green", attrs=["bold"]))
+
         return expenses_summary, remaining_budget
 
 
