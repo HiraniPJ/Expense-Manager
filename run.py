@@ -15,7 +15,7 @@ def print_intro():
     """Prints Introductory ASCII art for the application."""
     clear_terminal()
     intro_art = text2art("Expense Manager")
-    print(intro_art)
+    print(colored(intro_art, "cyan"))
 
 # Google Sheets Authentication
 SCOPE = [
@@ -43,18 +43,18 @@ def get_month_selection():
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ]
-    print("\nSelect a month:")
+    print(colored("\nSelect a month:", "yellow"))
     for i, month in enumerate(months, start=1):
-        print(f"{i}. {month}")
+        print(colored(f"{i}. {month}", "yellow"))
     while True:
         try:
             month_index = int(input("Enter the month number (1-12): "))
             if 1 <= int(month_index) <= 12:
                 return months[month_index - 1]
             else:
-                print("Invalid choice. Please enter a number between 1 and 12.")
+                print(colored("Invalid choice. Please enter a number between 1 and 12.", "red"))
         except ValueError:
-            print("Invalid input. Please enter a numeric value.")
+            print(colored("Invalid input. Please enter a numeric value.", "red"))
 
 
 def set_monthly_budget():
@@ -87,7 +87,7 @@ def set_monthly_budget():
 
         elif choice == '3':
             if current_budget == 0:
-                print("Warning: Your budget is set to £0. Are you sure you want to continue?")
+                print(colored("Warning: Your budget is set to £0. Are you sure you want to continue?", "red"))
                 confirm = input("Do you want to proceed without setting a budget? (y/n): ").strip().lower()
                 if confirm == 'n':
                     continue
@@ -127,14 +127,14 @@ def get_category_selection():
     }
     print("\nSelect a category:")
     for key, value in categories.items():
-        print(f"{key}. {value}")
+        print(colored(f"{key}. {value}", "green"))
     while True:
         try:
             cat_choice = int(input("Enter the number of the category: "))
             if cat_choice in categories:
                 return categories[cat_choice]
             else:
-                print("Invalid input. Please enter a valid category number.")
+                print(colored("Invalid input. Please enter a valid category number.", "orange"))
         except ValueError:
             print("Invalid input. Please enter a numeric value.")
 
@@ -149,7 +149,7 @@ def log_expense(month):
                 append_expense_to_sheet(month, category, float(amount))
                 print(f"Expense of £{amount} logged for {category} in {month}.")
                 break
-            print("Invalid amount. Please enter a valid number.")
+            print(colored("Invalid amount. Please enter a valid number.", "orange"))
 
         if not confirm_action("Would you like to log another expense? "):
             break
@@ -192,16 +192,16 @@ def generate_expense_report(month):
 
         remaining_budget = budget - total_expenses
 
-        print(f"\nExpense Report for {month}:")
-        print(f"Total Budget: £{budget}")
-        print(f"Total Expenses: £{total_expenses}")
-        print(f"Remaining Budget: £{remaining_budget}")
+        print(colored(f"\n📊 Expense Report for {month}:", "cyan"))
+        print(colored(f"💰 Total Budget: £{budget}", "green"))
+        print(colored(f"💸 Total Expenses: £{total_expenses}", "yellow"))
+        print(colored(f"💵 Remaining Budget: £{remaining_budget}", "green" if remaining_budget >= 0 else "red"))
 
         return expenses_summary, remaining_budget
 
 
     except gspread.exceptions.CellNotFound:
-        print(f"No Budget data found for {month}.")
+        print(colored(f"No Budget data found for {month}.", "red"))
     return {}, 0
 
 
@@ -238,7 +238,7 @@ def main():
         report_title = f"Expense Report for {month}"
         print_table(expenses_summary, report_title)
 
-    print("Exiting program. Have a great day!")
+    print(colored("👋 Exiting program. Have a great day!", "cyan"))
 
 if __name__ == "__main__":
     main()
