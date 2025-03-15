@@ -53,23 +53,39 @@ As a **user**, I want to:
 
 1. **Start Application**
     - The program initializes and authenticates with Google Sheets API.
-    - Displays the **Expense Manager** ASCII header (**add screenshot here**).
+    - Displays the **Expense Manager** ASCII header
+
+![image](https://github.com/user-attachments/assets/b8107d5f-bec2-4be9-b863-b6864f551ba4)
+
+
 2. **Set Monthly Budget**
     - User selects a **month** from the list (January - December).
     - If a budget exists, the user is prompted with:
       - **Update** (Replace the old value)
       - **Add to budget** (Increase current budget)
       - **Keep current budget** (No changes made)
-    - Budget updates are reflected in **Google Sheets** (**add screenshot here**).
+    - Budget updates are reflected in **Google Sheets**
+
+![image](https://github.com/user-attachments/assets/ad5ec550-e456-45ad-9374-1aa2a9ea1e9d)  ![image](https://github.com/user-attachments/assets/03114ac9-c337-495d-abba-dd13541d96c2)
+
+
 3. **Log an Expense**
     - User selects an **expense category** (Rent, Groceries, Vehicle, etc.).
     - Inputs the **expense amount**.
-    - The system updates Google Sheets accordingly (**add screenshot here**).
+    - The system updates Google Sheets accordingly
+
+![image](https://github.com/user-attachments/assets/e4926347-04b5-4edf-ae13-70b9b5f28933) ![image](https://github.com/user-attachments/assets/162817f3-cce8-4f31-970e-9797e2d46529)
+
+
 4. **Generate an Expense Report** (Optional)
     - Displays **total expenses, remaining budget, and category-wise spending**.
     - If expenses exceed the budget, a **red warning message** appears.
     - If under budget, a **green congratulatory message** is shown.
-    - Displays **formatted expense report table** (**add screenshot here**).
+    - Displays **formatted expense report table**
+
+![image](https://github.com/user-attachments/assets/fc2bcb99-1cf8-4056-a605-52c921d1a096) ![image](https://github.com/user-attachments/assets/11dc5ef7-e4e7-471c-bfd6-f79a6081a1f9)
+
+
 5. **Exit the Application**
     - The user can choose to exit or restart the process.
 
@@ -79,6 +95,7 @@ As a **user**, I want to:
 <img src="Assets\readmeimages\operation.flow.diagram.JPG" alt="process diagram">
 
 ---
+
 ## Application Features
 
 ### Budget Management
