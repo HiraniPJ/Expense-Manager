@@ -47,6 +47,39 @@ As a **user**, I want to:
 
 ---
 
+**Flow Process Diagram**
+
+![operation flow diagram](https://github.com/user-attachments/assets/5edfa906-11dd-48f0-98af-0527ec3e7af2)
+
+---
+
+## Application Features
+
+### Budget Management
+- Allows users to **set monthly budgets**.
+- Users can **modify or add to an existing budget**.
+- Ensures **budget consistency across all months**.
+
+### Expense Tracking
+- Users can **log expenses under predefined categories**.
+- Expense amounts are **validated** before submission.
+- Expenses **automatically update in Google Sheets**.
+
+### Report Generation
+- Generates a **detailed monthly expense report**.
+- Displays **total expenses vs. budget**.
+- Categorizes spending and highlights **budget overages**.
+- Uses **color-coded messages**:
+  - **Green**: If under budget
+  - **Red**: If over budget 
+
+### Google Sheets Integration
+- Automatically syncs **budgets and expenses** to Google Sheets.
+- Ensures **data persistence and accessibility**.
+- Allows users to **view and edit their financial records anytime**.
+
+---
+
 ## Process Flow
 
 ### How It Works
@@ -91,75 +124,6 @@ As a **user**, I want to:
 
 ---
 
-<h2>Flow Process</h2>
-<img src="Assets\readmeimages\operation.flow.diagram.JPG" alt="process diagram">
-
----
-
-## Application Features
-
-### Budget Management
-- Allows users to **set monthly budgets**.
-- Users can **modify or add to an existing budget**.
-- Ensures **budget consistency across all months**.
-
-### Expense Tracking
-- Users can **log expenses under predefined categories**.
-- Expense amounts are **validated** before submission.
-- Expenses **automatically update in Google Sheets**.
-
-### Report Generation
-- Generates a **detailed monthly expense report**.
-- Displays **total expenses vs. budget**.
-- Categorizes spending and highlights **budget overages**.
-- Uses **color-coded messages**:
-  - **Green**: If under budget
-  - **Red**: If over budget (**add screenshot of the warning message here**)
-
-### Google Sheets Integration
-- Automatically syncs **budgets and expenses** to Google Sheets.
-- Ensures **data persistence and accessibility**.
-- Allows users to **view and edit their financial records anytime**.
-
----
-
-
- <h2><b>Scope of Application</b></h2>
- <p>Expense Manager aims to cater to individuals looking for a simple yet effective way to track their personal finances, especially suited for those who prefer using Google Spreadsheets for data management.</p>
-
-<h2><b>Strategy</b></h2>
-<h3>Target Audience</h3>
-<ul>
-<li>Young adults managing their finances for the first time.</li>
-<li>Experienced budgeters looking for a straightforward solution.</li>
-</ul>
-<h3>Key Information Deliverables</h3>
-<ul>
-<li>Monthly expense summary.</li>
-<li>Category-wise spending breakdown.</li>
-<li>Budget comparison insights.</li>
-</ul>
-<h3>Visual Simplicity</h3>
-<p>The interface is designed with a focus on clarity and minimalism to prevent user fatigue and enhance readability.</p>
-
-<h2>Aesthetics</h2>
-<p>The UI will use a calm color palette to encourage stress-free financial management and incorporate responsive design principles to ensure functionality across devices.</p>
-
-<h2>Wireframes/Flowchart</h2>
-
-
-<h2><b>Features</b></h2>
-<p>Monthly Budget Setting: Set a monthly budget for various categories.</p>
-<img src ="Assets/readmeimages/budget.setting.png" alt ="Monthly Budget">
-<p>Expense Logging: Log expenses by category for any selected month.</p>
-<img src ="Assets/readmeimages/expense.logging.png" alt ="Expense Logging">
-<p>Report Generation: Generate and view a monthly expense report.</p>
-<img src ="Assets/readmeimages/generate.report.png" alt ="Report Generation">
-<p>Google Spreadsheet to log all the expenses</p>
-<img src="Assets\readmeimages\Expensemanagerspradsheet.JPG" alt="Google Spreadsheet">
-
----
-
 ## Technology Used
 
 ### Programming Languages & Libraries
@@ -169,7 +133,7 @@ As a **user**, I want to:
 - **Termcolor & Colorama** - Adds colored text for improved readability.
 - **Art** - Generates ASCII text for branding.
 - **Heroku** - Cloud deployment platform.
-- 
+  
 ---
 
 ## Testing
@@ -192,12 +156,13 @@ Tested with multiple users for:
 
 ---
 
-<h2><b>Validator Testing</b></h2>
-<p>Expense Manager app was tested using Python Linter
+**Validator Testing**
+Expense Manager app was tested using Python Linter
     
-<img src="Assets\readmeimages\pythonlinternoerror.JPG" alt = "Test-Results">
+![pythonlinternoerror](https://github.com/user-attachments/assets/c0f0f286-8a7f-4dbf-b31c-c4e8aa5ef325)
 
-<h2>User Testing</h2>
+
+**Errors & Fixes**
 
 **1. Error: Infinite Loop in Budget Update Confirmation**
 ```python
@@ -264,13 +229,6 @@ while True:
         except ValueError:
             print(colored("Invalid input. Please enter a numeric value.", "yellow"))
 ```
-```python
-```
-
-```python
-```
-```python
-```
 
 **3. Error: Invalid Color Name "Orange" in termcolor**
 
@@ -289,12 +247,46 @@ Replaced "orange" with "yellow".
 ```python
 print(colored("Invalid input. Please enter a valid category number.", "yellow"))
 ```
-            
-<h2>Terminal Results</h2>
-<img src="Assets\readmeimages\full-code-without-errors.JPG" alt = "No error terminal">
 
-<h2>Spreadsheet</h2>
-<img src="Assets\readmeimages\spreadsheettested.JPG" alt = "No error terminal">
+**4. Error: Incorrect Expense Report Calculation**
+
+```python
+Expense Report for January:
+Total Budget: £150.0
+Total Expenses: £160.0
+Remaining Budget: £-10.0
+```
+- The expense report was not displaying an alert when the budget was exceeded.
+- Users needed to see a warning when expenses went over budget.
+
+**Solution**
+- Added a warning when the remaining budget is negative.
+- Colored messages for positive and negative balances.
+  
+```python
+remaining_budget = budget - total_expenses
+
+print(colored(f"\n📊 Expense Report for {month}:", "cyan", attrs=["bold"]))
+print(colored(f"💰 Total Budget: £{budget}", "green"))
+print(colored(f"💸 Total Expenses: £{total_expenses}", "yellow"))
+print(colored(f"💵 Remaining Budget: £{remaining_budget}", "green" if remaining_budget >= 0 else "red"))
+
+if remaining_budget < 0:
+    print(colored("⚠️ Warning: Your expenses have exceeded your budget!", "red", attrs=["bold"]))
+else:
+    print(colored("✅ Well done! You are under your budget.", "green", attrs=["bold"]))
+```
+--- 
+
+**Terminal Results**
+
+![image](https://github.com/user-attachments/assets/af33b8b9-d04a-4712-8829-15157f9f593c)![image](https://github.com/user-attachments/assets/c2f7c1aa-0ce3-44ee-97ff-25da76f9c2fa)![image](https://github.com/user-attachments/assets/49a4c699-e845-4678-b583-98298e8dd44a)![image](https://github.com/user-attachments/assets/b6d417eb-c706-4faa-af4b-18952554c342)
+
+---
+
+**Spreadsheet**
+
+![image](https://github.com/user-attachments/assets/2ba59411-279f-4832-a8d2-b4c2a2132dca)
 
 ---
 
