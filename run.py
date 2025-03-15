@@ -43,7 +43,7 @@ def get_month_selection():
         "January", "February", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     ]
-    print("\nSelect a month:", attrs=["bold"])
+    print(colored("\nSelect a month:", "white", attrs=["bold"]))
     for i, month in enumerate(months, start=1):
         print(colored(f"{i}. {month}", "yellow"))
     while True:
@@ -65,7 +65,7 @@ def set_monthly_budget():
     print(f"💰 Current budget for {month}: £{current_budget}")
 
     while True:
-        print("\nOptions:", attrs=["bold"])
+        print(colored("\nOptions:", "grey", attrs=["bold"]))
         print("1. Update the budget (Replace old value)")
         print("2. Add to the budget")
         print("3. Keep current budget")
@@ -125,7 +125,7 @@ def get_category_selection():
         5: "Online Shopping",
         6: "Other"
     }
-    print("\nSelect a category:", attrs=["bold"])
+    print(colored("\nSelect a category:", "white", attrs=["bold"]))
     for key, value in categories.items():
         print(colored(f"{key}. {value}", "blue"))
     while True:
