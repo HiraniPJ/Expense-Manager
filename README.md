@@ -1,114 +1,111 @@
-<h1>Expense Manager</h1>
-<h2><b>Overview</b></h2>
-<p>Expense Manager is a tool designed to help individuals and families keep track of their monthly expenses efficiently using Google Spreadsheets. This system simplifies financial monitoring and budgeting, offering users an intuitive interface to input, analyze, and visualize their spending habits over time.</p>
+# Expense Manager
+
+Expense Manager is a **Python-based terminal application** that allows users to **track monthly expenses, set budgets, and generate expense reports** efficiently using Google Spreadsheets. The system simplifies financial monitoring and budgeting, offering users an intuitive interface to input, analyze, and visualize their spending habits over time.
+
+The application is **deployed on Heroku** and **integrates with Google Sheets** for data storage.
 
 <p>The application is available for viewing <a href="https://expense-manage-bc56a7dbb585.herokuapp.com/">Expense Manager</a></p>
 
-<p>The Google sheet for this application is available for use <a href="https://docs.google.com/spreadsheets/d/1zNxBW0gxPYfTkYzdfDj7M-JjDe_q-cyNATAsHJw3WnI/edit#gid=0">Expense-Manager</a></p>
+---
+## Contents
 
+- [About Expense Manager](#about-expense-manager)
+- [User Stories](#user-stories)
+- [Process Flow](#process-flow)
+- [Application Features](#application-features)
+- [Technology Used](#technology-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Future Enhancements](#future-enhancements)
+- [Credits & Acknowledgments](#credits--acknowledgments)
 
-<h2><b>Goals</b></h2>
-<p>The primary goal of Expense Manager is to provide a user-friendly platform that makes the task of managing personal finances easy and accessible for everyone, regardless of their technical expertise. The system aims to encourage better financial management and planning.</p>
+---
 
-<h2><b>User Stories</b></h2>
-<ul>
-<li>As a user, I want to: easily enter my expenses, so I can keep accurate track of my spending without much effort.</li>
-<li>As a budget-conscious individual, I want to: visualize my monthly spending patterns, so I can identify areas where I can save money.</li>
-<li>As a family, we want to: monitor our collective expenses, to ensure we stay within our budget each month.</li>
-</ul>
+## About Expense Manager
 
-<h2><b>UX Goals</b></h2>
-<ul>
-<li>User-Friendly Interface: Easy navigation and minimalistic design.</li>
-<li>Quick Data Entry: Streamlined process for entering expenses.</li>
-<li>Comprehensive Reporting: Visual charts and categorized expenses.</li>
-</ul>
+### Goals
+The primary goal of **Expense Manager** is to provide a user-friendly platform that simplifies **personal finance management** for users of all levels of technical expertise. The system encourages **better financial planning** and **budget tracking** by allowing users to log expenses, adjust budgets, and generate detailed reports.
 
-<h2>Process Flow Guide</h2>
-<ol type="1.">
-<li><b>Start Application</b></li>
-Initialize Google Sheets API with credentials.
-Open the specified Google Sheet and worksheet.
-<li><b>Print Intro</b></li>
-<ul>
-<li>Clear the terminal screen.
-<li>Display ASCII art title "Expense Manager".
-<ul>
-<li><b>Set Monthly Budget</b></li>
-<li>Prompt the user to select a month.</li>
-<li>Ask the user to input a budget for the selected month.</li>
-<li>Validate the entered budget (ensure it's a valid float).</li>
-<li>Update the budget in the Google Sheet.</li>
-</ul>
-<li><b>Log Expense (Optional)</b></li>
-<ul>
-<li>Prompt the user if they want to log an expense.
-<li>If yes:</li>
-</ul>
-<ul>
-<li>Ask the user to select an expense category.</li>
-<li>Ask the user to input the expense amount for the chosen category.</li>
-<li>Validate the expense amount (ensure it's a valid float).</li>
-<li>Append the expense to the Google Sheet.</li>
-</ul>
-</ul>
+### Key Features
+- **Set & Update Monthly Budgets**: Users can assign a budget to a specific month and modify it as needed.
+- **Expense Logging by Category**: Expenses are categorized (Rent, Groceries, Vehicle, etc.) to ensure proper tracking.
+- **Real-Time Google Sheets Integration**: All expenses and budgets are automatically saved to Google Sheets.
+- **Detailed Expense Reports**: Users can generate and view expense summaries, including total spending and remaining budget.
+- **Interactive Command-Line Interface**: Users navigate through easy-to-follow prompts to enter data.
+- **Error Handling & Validation**: Ensures accurate data entry and prevents invalid inputs.
 
-<li><b>Generate Expense Report (Optional)</b></li>
-<ul>
-</li>Prompt the user if they want to generate an expense report.</li>
-</li>If yes:</li>
-</ul>
-<ul>
-<li>Retrieve all expenses for the selected month from the Google Sheet.</li>
-<li>Calculate total expenses and remaining budget.</li>
-<li>Display the expense report in a formatted table.</li>
-</ul>
-</ul>
-<li><b>End Application</b></li>
-<ul>
-<li>Close the application or restart the process.</li>
-</ul>
+---
 
+## User Stories
+
+As a **user**, I want to:
+- **Easily enter expenses** to track my spending accurately.
+- **Update my budget dynamically** when needed.
+- **Categorize expenses** to analyze where my money goes.
+- **Generate reports** to compare my expenses with my budget.
+- **See real-time updates in Google Sheets** to store my financial data securely.
+
+---
+
+## Process Flow
+
+### How It Works
+
+1. **Start Application**
+    - The program initializes and authenticates with Google Sheets API.
+    - Displays the **Expense Manager** ASCII header (**add screenshot here**).
+2. **Set Monthly Budget**
+    - User selects a **month** from the list (January - December).
+    - If a budget exists, the user is prompted with:
+      - **Update** (Replace the old value)
+      - **Add to budget** (Increase current budget)
+      - **Keep current budget** (No changes made)
+    - Budget updates are reflected in **Google Sheets** (**add screenshot here**).
+3. **Log an Expense**
+    - User selects an **expense category** (Rent, Groceries, Vehicle, etc.).
+    - Inputs the **expense amount**.
+    - The system updates Google Sheets accordingly (**add screenshot here**).
+4. **Generate an Expense Report** (Optional)
+    - Displays **total expenses, remaining budget, and category-wise spending**.
+    - If expenses exceed the budget, a **red warning message** appears.
+    - If under budget, a **green congratulatory message** is shown.
+    - Displays **formatted expense report table** (**add screenshot here**).
+5. **Exit the Application**
+    - The user can choose to exit or restart the process.
+
+---
 
 <h2>Flow Process</h2>
 <img src="Assets\readmeimages\operation.flow.diagram.JPG" alt="process diagram">
 
-<h2><b>Structure</b></h2>
-<li>Select Month for input.</li>
-<ol type="1.">
-<li>January</li>
-<li>February</li>
-<li>March</li>
-<li>April</li>
-<li>May</li>
-<li>June</li>
-<li>July</li>
-<li>August</li>
-<li>September</li>
-<li>October</li>
-<li>November</li>
-<li>December</li>
-</ol>
-<ul>
-<li>Input the number of the month with validation.</li>
-<li>Budget input prompt.</li>
-<li>Option to log the expense on the spreadsheet.</li>
-<li>List of categories of expenses for selection.</li>
-</ul>
-<ol type="1.">
-<li>Rent</li>
-<li>Groceries</li>
-<li>Vehicle</li>
-<li>Cafe/Restaurant</li>
-<li>Online Shopping</li>
-<li>Other</li>
-</ol>
-<ul>
-<li>Category input prompt.</li>
-<li>Expenses spend prompt with validation.</li>
-<li>Generate expense report prompt with validation.</li>
-<li>Visual report of the monthly expense potrayed on a table format.</li>
-</ul>
+---
+## Application Features
+
+### Budget Management
+- Allows users to **set monthly budgets**.
+- Users can **modify or add to an existing budget**.
+- Ensures **budget consistency across all months**.
+
+### Expense Tracking
+- Users can **log expenses under predefined categories**.
+- Expense amounts are **validated** before submission.
+- Expenses **automatically update in Google Sheets**.
+
+### Report Generation
+- Generates a **detailed monthly expense report**.
+- Displays **total expenses vs. budget**.
+- Categorizes spending and highlights **budget overages**.
+- Uses **color-coded messages**:
+  - **Green**: If under budget
+  - **Red**: If over budget (**add screenshot of the warning message here**)
+
+### Google Sheets Integration
+- Automatically syncs **budgets and expenses** to Google Sheets.
+- Ensures **data persistence and accessibility**.
+- Allows users to **view and edit their financial records anytime**.
+
+---
+
 
  <h2><b>Scope of Application</b></h2>
  <p>Expense Manager aims to cater to individuals looking for a simple yet effective way to track their personal finances, especially suited for those who prefer using Google Spreadsheets for data management.</p>
@@ -144,15 +141,39 @@ Open the specified Google Sheet and worksheet.
 <p>Google Spreadsheet to log all the expenses</p>
 <img src="Assets\readmeimages\Expensemanagerspradsheet.JPG" alt="Google Spreadsheet">
 
-<h2><b>Technologies</b></h2>
-<ul>
-<li>Python: Python 3.8 or above.</li>
-<li>Google Sheet API: Manage and store data.</li>
-<li>gspread: Python API for Google Sheets.</li>
-<li>PrettyTable: For displaying data in a tabular format in the console.</li>
-<li>Termcolor & Colorama: For colored console output.</li>
-<li>Art: For ASCII art representations.</li>
-</ul>
+---
+
+## Technology Used
+
+### Programming Languages & Libraries
+- **Python 3** - Core programming language.
+- **gspread** - Google Sheets API integration.
+- **PrettyTable** - Displays reports in table format.
+- **Termcolor & Colorama** - Adds colored text for improved readability.
+- **Art** - Generates ASCII text for branding.
+- **Heroku** - Cloud deployment platform.
+- 
+---
+
+## Testing
+
+### Linter & Validation
+- **PEP8 Validation**: Ensured clean and readable Python code.
+- **Input Validation**: Handled invalid inputs for **month selection, category choice, and budget entry**.
+- **Edge Cases Tested**:
+  - Entering invalid month numbers.
+  - Logging expenses without setting a budget.
+  - Entering non-numeric values.
+  - Handling budget overages and showing warnings.
+
+### User Testing
+Tested with multiple users for:
+- **Correct flow of budget updates and expenses**.
+- **Google Sheets synchronization accuracy**.
+- **Expense tracking across multiple months**.
+- **Error handling improvements based on feedback**.
+
+---
 
 <h2><b>Validator Testing</b></h2>
 <p>Expense Manager app was tested using Python Linter, and the following are the initial Results of the errors. <p>
@@ -202,74 +223,90 @@ Open the specified Google Sheet and worksheet.
 <h2>Spreadsheet</h2>
 <img src="Assets\readmeimages\spreadsheettested.JPG" alt = "No error terminal">
 
-<h1><b>Heroku Deployment</b></h1>
-<h2>Step-by-Step Guide</h2>
-<h3>Step 1: Prepare Your Application</h3>
-<ol type="1.">
-<li><b>Create Your Application:</b></li>
-<li>Develop your application locally in your preferred programming language. Ensure it works as intended on your local machine.</li>
-<li><b>Prepare Necessary Files:</b></li>
-<li>Ensure you have all necessary files for your application, such as run.py for a Python app, or equivalent for other languages.</li>
-Create a <b>requirements.txt</b> file that lists all the dependencies your application needs.</li>
-<li><b>Configuration Files:</b></li>
-<li>If your application requires environment-specific settings, prepare these in a format that can be easily configured on Heroku.</li>
-</ol>
+---
 
-<ol type="1.">
-<h2>Step 2: Create and Configure creds.json</h2>
-<ul>
-<li><b>Create a creds.json File:</b></li>
-<li>This file should contain all necessary credentials and configuration needed for your application to run, such as API keys or database URLs.</li>
-</ul>
-</ol>
+## Deployment
 
-<h2>Step 3: Upload Your Project to GitHub</h2>
-<ol type="1.">
-<li><b>Create a New Repository:</b></li>
-<ul>
-<li>Log into your GitHub account.</li>
-<li>Create a new repository and name it appropriately for your project.</li>
-<li><b>Upload Your Files:</b></li>
-Use the GitHub interface to upload your project files directly to your new repository. You can do this by navigating to the repository, clicking on 'Add file', and then 'Upload files'.</li>
-<li><b>Exclude creds.json:<li></b>
-<ol>
-<li>Do not upload creds.json to GitHub to keep sensitive information secure.</li>
-</ul>
-</ol>
+### Cloning & Forking
+#### Fork
+1. On GitHub.com, navigate to the [HiraniPJ/Expense-Manager](https://github.com/HiraniPJ/Expense-Manager) repository.
+2. In the top-right corner of the page, click Fork.
+3. By default, forks are named the same as their parent repositories. You can change the name of the fork to distinguish it further.
+4. Add a description to your fork.
+5. Click Create fork.
 
-<h2>Step 4: Deploy to Heroku</h2>
-<ol type="1.">
-<li><b>Create a New Heroku App:</b></li>
-<ul>
-<li>Log into your Heroku account.</li>
-<li>Go to the Dashboard and create a new app by selecting 'New' and then 'Create new app'. Follow the prompts to configure your app's name and region.</li>
-<li><b>Connect Heroku to GitHub:</b></li>
-<li>In your Heroku app's dashboard, navigate to the 'Deploy' section.</li>
-<li>Select 'GitHub' as the deployment method.</li>
-<li>Connect your Heroku account to your GitHub account and select the repository you want to deploy.</li>
-<li><b>Deploy Your Application:</b></li>
-<li>Still in the 'Deploy' section, scroll down to 'Manual deploy', choose the branch you want to deploy, and then click 'Deploy Branch'.</li>
-</ul>
-</ol>
+#### Clone
+1. Above the list of files click the button that says 'Code'.
+2. Copy the URL for the repository.
+3. Open Terminal. Change the directory to the location where you want the cloned directory.
+4. Type git clone, and then paste the URL
+5. Press Enter.
 
+### Local Deployment
+1. Sign up to [Gitpod](https://gitpod.io/)
+2. Download the Gitpod browser extension.
+3. On GitHub.com, navigate to the [HiraniPJ/Expense-Manager](https://github.com/HiraniPJ/Expense-Manager) repository.
+4. Above the list of files click the button that says 'Gitpod'.
+5. Once open you will need to install the libraries, you can do this by typing "pip3 install -r requirements.txt" into the terminal
 
-<h2>Step 5: Manually Add creds.json on Heroku</h2>
-<ol type="1.">
-<li><b>Add Configuration Variables:</b></li>
-<ul>
-<li>In the Heroku Dashboard for your app, go to 'Settings'.</li>
-<li>Scroll down to 'Config Vars' and click 'Reveal Config Vars'.</li>
-<li>Manually enter the key-value pairs from your creds.json file into the Config Vars section.</li>
-<ul>
-</ol>
-<h1><b>Acknowlegment</b></h1>
-<ul>
-<li>https://docs.gspread.org/en/v6.0.0/user-guide.html#sharing-a-spreadsheet</li>
-<li>https://pypi.org/project/art/</li>
-<li>https://pypi.org/project/prettytable/</li>
-<li>https://pypi.org/project/termcolor/</li>
-<li>https://learn.codeinstitute.net/</li>
-<li>https://www.w3schools.com/python/default.asp</li>
-<li>https://www.youtube.com/watch?v=HTD86h69PtE</li>
-<li>https://www.youtube.com/watch?v=tMLsR0_2yIE</li>
-</ul>
+### Remote Deployment 
+ The prgoram was deployed to Heroku. If you have forked/cloned the repository the steps to deploy are:
+ 1. On Heroku, create a new app.
+ 2. input a name for your app
+ 3. Click on the settings tab
+ 4. Scroll to the Config Vars and click on the "Reveal Config Vars"
+ 5. Input CREDS into the key field and the content of the Google API creds file into the value area.
+ 6. Add another config, PORT into key and 8000 into value.
+ 7. Set the buildbacks to Python and NodeJs in that order .
+ 8. Link your Heroku app to you repository.
+ 9. Click on Deploy.
+ 10. The page will then provide the url to the python terminal.
+
+ The live link can be found here - [Expense-Manager](https://expense-manage-bc56a7dbb585.herokuapp.com/)
+ 
+### Google Sheet
+The program uses a Google Sheets to store saved graphs and mazes. 
+
+1. Sign up to a [Google Account](https://support.google.com/accounts/answer/27441?hl=en#)
+2. Open Google Sheets and create a new spreadsheet. [Click here for Google Sheets](https://docs.google.com/spreadsheets/)
+3. Change the name of the spreadsheet to 'Expense-Manager'
+    ```python
+    SHEET = GSPREAD_CLIENT.open('Expense-Manager')
+    ```
+4. You now need to change the name of the worksheet to 'saves'
+5. The google sheet is now complete
+
+Now you need to get the API credentials from the [Google Cloud Platform](https://console.cloud.google.com/)
+
+1. Create a new project and give it a name.
+2. Select APIs and services from the navigation pane. 
+3. Now click Library
+4. Search for the Google Sheets and click enable.
+5. Search for the google Drive API and click enable.
+6. Click create credentials and from the drop down select Google Drive API.
+7. From the form select Application data
+8. Then click No for "are you planning to use this API with compute Engine, Kubernetes engine, App engine or cloud Functions?"
+9. Press Create and Continue.
+10. Select a role of Editor from the options and click "Done"
+11. Navigate to the service account on the credentials page. 
+12. On the tab click KEYS then ADD KEY.
+13. The Key type will need to be JSON
+14. Copy the downloaded JSON file into your repository and name it "creds.json"
+15. ADD THE "creds.json" FILE TO .gitignore FILE. DO NOT SHARE PUBLICLY.
+16. 
+---
+
+## Future Enhancements
+- **Undo Last Transaction**: Ability to revert the last logged expense.
+- **Graphical Reports**: Generate **charts and graphs** for better visualization.
+- **Multi-User Support**: Allow multiple users with authentication.
+- **Mobile App Integration**: Sync data with a mobile app.
+
+---
+
+## Credits & Acknowledgments
+
+Special thanks to:
+- **Code Institute** - Learning resources and project structure guidance.
+- **Google Sheets API Documentation** - Integration assistance.
+- **Stack Overflow & YouTube Tutorials** - Troubleshooting and debugging.
