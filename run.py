@@ -6,6 +6,7 @@ from art import text2art
 from prettytable import PrettyTable
 from termcolor import colored
 
+
 def clear_terminal():
     """Clears terminal for a clean display."""
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -16,6 +17,7 @@ def print_intro():
     clear_terminal()
     intro_art = text2art("Expense")
     print(colored(intro_art, "cyan", attrs=["bold"]))
+
 
 # Google Sheets Authentication
 SCOPE = [
@@ -154,6 +156,7 @@ def log_expense(month):
         if not confirm_action("Would you like to log another expense? "):
             break
 
+
 def append_expense_to_sheet(month, category, amount):
     """Appends the expense data to Google Sheet under the specified month."""
     try:
@@ -204,7 +207,6 @@ def generate_expense_report(month):
 
         return expenses_summary, remaining_budget
 
-
     except gspread.exceptions.CellNotFound:
         print(colored(f"No Budget data found for {month}.", "red"))
     return {}, 0
@@ -236,7 +238,7 @@ def main():
     month, budget = set_monthly_budget()
 
     while confirm_action("Would you like to log an expense? "):
-            log_expense(month)
+        log_expense(month)
 
     if confirm_action("Would you like to generate an expense report? "):
         expenses_summary, remaining_budget = generate_expense_report(month)
@@ -244,6 +246,7 @@ def main():
         print_table(expenses_summary, report_title)
 
     print(colored("👋 Exiting program. Have a great day!", "cyan", attrs=["bold"]))
+
 
 if __name__ == "__main__":
     main()
