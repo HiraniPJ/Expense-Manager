@@ -193,47 +193,103 @@ Tested with multiple users for:
 ---
 
 <h2><b>Validator Testing</b></h2>
-<p>Expense Manager app was tested using Python Linter, and the following are the initial Results of the errors. <p>
-<li>21: E302 expected 2 blank lines, found 1</li>
-<li>22: E117 over-indented</li>
-<li>24: W293 blank line contains whitespace</li>
-<li>25: E302 expected 2 blank lines, found 1</li>
-<li>28: W291 trailing whitespace</li>
-<li>31: W293 blank line contains whitespace</li>
-<li>42: W293 blank line contains whitespace</li>
-<li>47: E501 line too long (128 > 79 characters)</li>
-<li>53: W291 trailing whitespace</li>
-<li>55: E211 whitespace before '['</li>
-<li>57: W293 blank line contains whitespace</li>
-<li>66: W291 trailing whitespace</li>
-<li>87: W291 trailing whitespace</li>
-<li>93: E501 line too long (84 > 79 characters)</li>
-<li>99: E303 too many blank lines (3)</li>
-<li>105: W293 blank line contains whitespace</li>
-<li>121: E303 too many blank lines (3)</li>
-<li>128: W293 blank line contains whitespace</li>
-<li>141: W291 trailing whitespace</li>
-<li>159: E303 too many blank lines (3)</li>
-<li>177: E501 line too long (84 > 79 characters)</li>
-<li>181: E305 expected 2 blank lines after class or function definition, found 1</li>
-<li>181: E225 missing whitespace around operator</li>
-<br>
-<p><b>The errors were then later fixed and here is the final results of the Testing</b></p>
-
+<p>Expense Manager app was tested using Python Linter
+    
 <img src="Assets\readmeimages\pythonlinternoerror.JPG" alt = "Test-Results">
 
 <h2>User Testing</h2>
-<h3>1. Errors</h3>
-<img src="Assets\readmeimages\error.file.png" alt = "Error file1.">
-<h2>Solution</h2>
-<img src="Assets\readmeimages\categoryerrorsolved.JPG" alt = "solved error1">
-<br>
 
-<h3>2.Float Error</h3>
-<img src="Assets\readmeimages\float.error.JPG" alt = "Error file2.">
-<h2>Solution</h2>
-<img src="Assets\readmeimages\floaterrorsolved.JPG" alt = "solved error2">
+**1. Error: Infinite Loop in Budget Update Confirmation**
+```python
+Current budget for January: £100
+Are you sure you want to update the budget? (y/n): y
+Budget updated successfully for January.
+Current budget for January: £100
+Are you sure you want to update the budget? (y/n): y
+Budget updated successfully for January.
+```
+- The program was asking "Are you sure you want to update the budget?" twice due to redundant calls inside a loop.
+- After updating the budget, it was displaying the same question again unnecessarily.
 
+**Solution:**
+- Refactored the code to only ask once before updating the budget.
+  
+```python
+        confirm = input("Are you sure you want to update the budget? (y/n): ").lower()
+        if confirm == 'y':
+            expenses.update_cell(month_cell.row, 2, budget)
+            print(f"Budget updated successfully for {month}.")
+        else:
+            print("Budget update cancelled.")
+```
+---
+**2. Error: Validation Errors in Month and Category Selection**
+
+```python
+Enter the month number (1-12): March
+Invalid input. Please enter a numeric value.
+```
+```python
+Enter the number of the category: 7
+Invalid input. Please enter a valid category number.
+```
+- Users were entering text instead of numbers for months, causing a validation error.
+- Categories were numbered 1-6, but users were entering numbers outside the valid range.
+
+**Solution:**
+
+- Added stronger input validation to ensure:
+    - The month input is numeric and within 1-12.
+    - The category input is numeric and within the valid category range.
+
+```python
+while True:
+        try:
+            month_index = int(input("Enter the month number (1-12): "))
+            if 1 <= int(month_index) <= 12:
+                return months[month_index - 1]
+            else:
+                print(colored("Invalid choice. Please enter a number between 1 and 12.", "red"))
+        except ValueError:
+            print(colored("Invalid input. Please enter a numeric value.", "red"))
+```
+```python
+while True:
+        try:
+            cat_choice = int(input("Enter the number of the category: "))
+            if cat_choice in categories:
+                return categories[cat_choice]
+            else:
+                print(colored("Invalid input. Please enter a valid category number.", "yellow"))
+        except ValueError:
+            print(colored("Invalid input. Please enter a numeric value.", "yellow"))
+```
+```python
+```
+
+```python
+```
+```python
+```
+
+**3. Error: Invalid Color Name "Orange" in termcolor**
+
+```python
+  File "/app/.heroku/python/lib/python3.12/site-packages/termcolor/termcolor.py", line 171, in colored
+    result = fmt_str % (COLORS[color], result)
+                        ~~~~~~^^^^^^^
+KeyError: 'orange'
+```
+- termcolor does not support the color "orange".
+- Only valid colors include red, green, yellow, blue, magenta, cyan, white, grey.
+
+**Solution**
+Replaced "orange" with "yellow".
+
+```python
+print(colored("Invalid input. Please enter a valid category number.", "yellow"))
+```
+            
 <h2>Terminal Results</h2>
 <img src="Assets\readmeimages\full-code-without-errors.JPG" alt = "No error terminal">
 
