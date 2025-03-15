@@ -62,7 +62,7 @@ def set_monthly_budget():
     month = get_month_selection()
     month_cell = expenses.find(month, in_column=1)
     current_budget = float(expenses.cell(month_cell.row, 2).value or 0)
-    print(f"Current budget for {month}: £{current_budget}")
+    print(f"💰 Current budget for {month}: £{current_budget}")
 
     while True:
         print("\nOptions:", attrs=["bold"])
@@ -75,19 +75,19 @@ def set_monthly_budget():
         if choice == '1':
             new_budget = float(input(f"Enter new budget for {month}: £"))
             expenses.update_cell(month_cell.row, 2, new_budget)
-            print(f"Budget updated to £{new_budget} for {month}.")
+            print(f"✅ Budget updated to £{new_budget} for {month}.")
             return month, new_budget
 
         elif choice == '2':
             add_amount = float(input(f"Enter amount to add to the budget: £"))
             new_budget = current_budget + add_amount
             expenses.update_cell(month_cell.row, 2, new_budget)
-            print(f"£{add_amount} added. New total budget: £{new_budget} for {month}.")
+            print(f"✅ £{add_amount} added. New total budget: £{new_budget} for {month}.")
             return month, new_budget
 
         elif choice == '3':
             if current_budget == 0:
-                print(colored("Warning: Your budget is set to £0. Are you sure you want to continue?", "red"))
+                print(colored("⚠️ Warning: Your budget is set to £0. Are you sure you want to continue?", "red"))
                 confirm = input("Do you want to proceed without setting a budget? (y/n): ").strip().lower()
                 if confirm == 'n':
                     continue
@@ -95,7 +95,7 @@ def set_monthly_budget():
             return month, current_budget
 
         else:
-            print("Invalid choice. Please enter 1, 2, or 3.")
+            print(colored("❌Invalid choice. Please enter 1, 2, or 3." "yellow"))
 
 
 def update_budget_in_sheet(month, budget):
@@ -127,7 +127,7 @@ def get_category_selection():
     }
     print("\nSelect a category:", attrs=["bold"])
     for key, value in categories.items():
-        print(colored(f"{key}. {value}", "green"))
+        print(colored(f"{key}. {value}", "blue"))
     while True:
         try:
             cat_choice = int(input("Enter the number of the category: "))
@@ -136,7 +136,7 @@ def get_category_selection():
             else:
                 print(colored("Invalid input. Please enter a valid category number.", "yellow"))
         except ValueError:
-            print("Invalid input. Please enter a numeric value.")
+            print(colored("Invalid input. Please enter a numeric value.", "yellow"))
 
 
 def log_expense(month):
@@ -214,7 +214,7 @@ def print_table(data, title):
     """Prints data in a pretty table format."""
     table = PrettyTable()
     table.title = title
-    table.field_names = ["Category", "(£) Amount"]
+    table.field_names = ["📌 Category", "💰 (£) Amount"]
     for key, value in data.items():
         table.add_row([key, f"£{value}"])
     print(table)
